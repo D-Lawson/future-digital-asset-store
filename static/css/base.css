@@ -1,0 +1,87 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/WHG1m7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 200px);
+    color: #555;
+    font-family: 'Titillium Web';
+}
+
+.nav-size{
+    padding-bottom: 10px;
+}
+
+.nav-fill{
+    background-color: #000d1d;
+}
+
+.nav-buttons {
+    color: #aaacad;
+}
+
+.logo-style {
+    -webkit-background-clip: text;
+    color:transparent;
+    background: radial-gradient(circle at center, #00aeec, #06a7e0, #32d6bf, #06a7e0);
+    background-size: 660px 660px;
+    -webkit-animation: FadeGradient 7s linear infinite;
+    -moz-animation: FadeGradient 7s linear infinite;
+    animation: FadeGradient 7s linear infinite;
+    -webkit-background-clip: text;
+    color:transparent;
+}
+
+.callout-fill {
+    background: radial-gradient(circle at center, #0274b8, #0274b8, #02bdb7, #0274b8);
+    padding: 7px;
+    background-size:660px 660px;
+    border-radius: 0.2em;
+    color: #042748;
+    -webkit-animation: FadeGradient 14s linear infinite;
+    -moz-animation: FadeGradient 14s linear infinite;
+    animation: FadeGradient 14s linear infinite;
+  }
+
+.button-style{
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    background-color: #00e7ff;
+}
+
+
+/* ----- MEDIA QUERIES ----- */
+
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-style {
+        padding-top: 150px;
+    }
+}
+
+/* ----- KEYFRAMES ----- */
+
+@-webkit-keyframes FadeGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes FadeGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes FadeGradient {
+    0%{background-position:0% 0px;}
+    100%{background-position:660px -660px;}
+}
+
+

@@ -1,5 +1,5 @@
 """
-WSGI config for ebook_store project.
+WSGI config for dig_asset_store project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

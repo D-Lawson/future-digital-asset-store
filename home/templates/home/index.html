@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block header %}
+    <div class="container header-style">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block main_content %}
-<h1 class="display-4 text-success">Test main content</h1>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-7 col-md-6 my-auto">
+                <h1 class="display-4 callout-fill text-center">
+                    View the full catalogue <a href="" class="btn btn-lg button-style">Shop Now</a>
+                </h1>
+            </div>
+        </div>
+    </div>
 {% endblock %}
