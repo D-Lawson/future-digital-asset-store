@@ -31,12 +31,58 @@
   <body>
     <header class="container-fluid fixed-top">
       <div id="topnav" class="row nav-fill nav-size pt-lg-2 d-none d-lg-flex">
-          <div class="col-12 col-lg-6 my-auto py-1 py-lg-0 text-center text-lg-left">
+          <div class="col-12 col-lg-5 my-auto py-1 py-lg-0 text-center text-lg-left">
               <a href="{% url 'home' %}" class="nav-link">
                 <div class="logo-style">
                   <h2 class="my-0">FUTURE DIGITAL ASSET STORE</h2>
                 </div>
               </a>
+          </div>
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <form method="GET" action="">
+                <div class="input-group w-100">
+                    <input class="form-control input-style" type="text" name="search" placeholder="Search asset catalogue">
+                    <div class="input-group-append">
+                        <button class="form-control btn input-style" type="submit">
+                            <span>
+                                <i class="fa-brands fa-searchengin logo-style h4"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+          </div>
+          <div class="col-12 col-lg-3 my-auto py-1 py-lg-0">
+              <ul class="list-inline text-center text-lg-right my-0">
+                  <li class="list-inline-item dropdown">
+                      <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <div class="text-center">
+                              <div class="nav-buttons"><i class="fas fa-gears fa-lg"></i></div>
+                              <p class="my-0 nav-buttons">Options</p>
+                          </div>
+                      </a>
+                      <div class="dropdown-menu menu-style" aria-labelledby="user-options">
+                          {% if request.user.is_authenticated %}
+                              {% if request.user.is_superuser %}
+                                  <a href="" class="dropdown-item menu-item">Manage assets</a>
+                              {% endif %}
+                              <a href="" class="dropdown-item menu-item">Account</a>
+                              <a href="{% url 'account_logout' %}" class="dropdown-item menu-item">Logout</a>
+                          {% else %}
+                              <a href="{% url 'account_signup' %}" class="dropdown-item menu-item">Register</a>
+                              <a href="{% url 'account_login' %}" class="dropdown-item menu-item">Login</a>
+                          {% endif %}
+                      </div>
+                  </li>
+                  <li class="list-inline-item">
+                      <a class="nav-link" href="">
+                          <div class="text-center">
+                              <div><i class="fas fa-cart-shopping fa-lg nav-buttons"></i></div>
+                              <p class="my-0 nav-buttons">£0.00</p>
+                          </div>
+                      </a>
+                  </li>
+              </ul>
           </div>
       </div>
   </header>
