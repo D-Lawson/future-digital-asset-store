@@ -16,10 +16,16 @@ body {
 
 .nav-fill{
     background-color: #000d1d;
+    border: 0px !important;
 }
 
 .nav-buttons {
     color: #aaacad;
+}
+
+.nav-buttons-1{
+    color: #00aeec;
+    margin-right: 3rem!important;
 }
 
 .logo-style {
@@ -32,6 +38,10 @@ body {
     animation: FadeGradient 7s linear infinite;
     -webkit-background-clip: text;
     color:transparent;
+}
+
+.icon-style{
+    color: #32d6bf !important;
 }
 
 .callout-fill {
