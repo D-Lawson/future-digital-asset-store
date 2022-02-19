@@ -1,0 +1,28 @@
+[
+    {
+       "pk":1,
+       "model":"assets.asset",
+       "fields":{
+          "name":"Sunset by VisualDon",
+          "description":"Render of a red sunset above large waves",
+          "price":5.99,
+          "category":1,
+          "popularity":4,
+          "image_url":"https://static.skillshare.com/cdn-cgi/image/quality=85,width=1242,height=839,format=auto/uploads/project/240155/cover_1242_818114dd701eea0ac41cb0613b14206f.jpg",
+          "image":"cover_1242_818114dd701eea0ac41cb0613b14206f.jpg"
+       }
+    },
+    {
+       "pk":2,
+       "model":"assets.asset",
+       "fields":{
+         "name":"Forest by spotlight-studio",
+         "description":"Render of a forest",
+         "price":4.99,
+         "category":2,
+         "popularity":7,
+         "image_url":"https://aws1.discourse-cdn.com/business7/uploads/d5forumtest/optimized/2X/7/785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg",
+         "image":"785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg"
+       }
+    }
+]

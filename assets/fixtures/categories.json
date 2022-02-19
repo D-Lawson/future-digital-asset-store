@@ -1,0 +1,74 @@
+[
+    {
+       "pk":1,
+       "model":"assets.category",
+       "fields":{
+          "name":"digital_renders",
+          "display_name":"Digital Renders"
+       }
+    },
+    {
+       "pk":2,
+       "model":"assets.category",
+       "fields":{
+          "name":"graphics",
+          "display_name":"Graphics"
+       }
+    },
+    {
+      "pk":3,
+      "model":"assets.category",
+      "fields":{
+         "name":"photographs",
+         "display_name":"Photographs"
+      }
+   },
+   {
+      "pk":4,
+      "model":"assets.category",
+      "fields":{
+         "name":"electronic_music",
+         "display_name":"Electronic Music"
+      }
+   },
+   {
+      "pk":5,
+      "model":"assets.category",
+      "fields":{
+         "name":"background_music",
+         "display_name":"Background Music"
+      }
+   },
+   {
+      "pk":6,
+      "model":"assets.category",
+      "fields":{
+         "name":"audio_samples",
+         "display_name":"Audio Samples"
+      }
+   },
+   {
+      "pk":7,
+      "model":"assets.category",
+      "fields":{
+         "name":"video_renders",
+         "display_name":"Video Renders"
+      }
+   },
+   {
+      "pk":8,
+      "model":"assets.category",
+      "fields":{
+         "name":"real_footage",
+         "display_name":"Real Footage"
+      }
+   },
+   {
+      "pk":9,
+      "model":"assets.category",
+      "fields":{
+         "name":"animated_graphics",
+         "display_name":"Animated Graphics"
+      }
+   }
+]

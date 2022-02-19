@@ -52,10 +52,10 @@ body {
     border-radius: 0.2em;
     border-style: inset;
     border-color: #006baf9e;
-    color: #042748;
     -webkit-animation: FadeGradient 14s linear infinite;
     -moz-animation: FadeGradient 14s linear infinite;
     animation: FadeGradient 14s linear infinite;
+    color: #000000;
   }
 
 .button-style{
