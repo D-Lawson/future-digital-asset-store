@@ -10,6 +10,16 @@ body {
     font-family: 'Titillium Web';
 }
 
+.overlay{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #000d1dbf;
+    z-index: -1;
+}
+
 .nav-size{
     padding-bottom: 10px;
 }
@@ -44,6 +54,10 @@ body {
     color: #32d6bf !important;
 }
 
+.page-heading{
+    color: #32d6bf;
+}
+
 .callout-fill {
     font-size: 2rem;
     background: radial-gradient(circle at center, #0274b8, #0274b8, #02bdb7, #0274b8);
@@ -58,12 +72,62 @@ body {
     color: #000000;
   }
 
+.card-fill {
+    background: radial-gradient(circle at center, #0274b8, #0274b8, #02bdb7, #0274b8);
+    background-size:660px 660px;
+    border-radius: 0.2em;
+    border-style: solid;
+    border-width: 0.08em;
+    border-color: #006baf9e;
+    -webkit-animation: FadeGradient 14s linear infinite;
+    -moz-animation: FadeGradient 14s linear infinite;
+    animation: FadeGradient 14s linear infinite;
+    color: #000000;
+}
+
+.image-div{
+    height: 100%;
+    background: #000000;
+}
+
+.fit-image-center{
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100% !important;
+    overflow: hidden;
+    object-fit: scale-down;
+    object-position: center;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 100%;
+}
+
+.card-body-style{
+    display: flex;
+    align-items: flex-end;
+    text-shadow: 0 0 black;
+}
+
 .button-style{
     margin-left: 7px;
     border-style: solid;
     border-color: black;
     padding: 5px;
     background-color: #00e7ff;
+}
+
+.purchased-text{
+    background: #0d6381bf;
+    border: #04608b;
+    border-style: solid;
+    border-width: thin;
+    color: #23e9b2;
+    position: absolute;
+    border-radius: 3px;
+    padding: 2px;
+    bottom: -3px;
+    right: 4px;
 }
 
 .input-style{
