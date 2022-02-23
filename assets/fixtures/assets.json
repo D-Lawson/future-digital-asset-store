@@ -9,7 +9,7 @@
           "category":1,
           "popularity":4,
           "image_url":"https://static.skillshare.com/cdn-cgi/image/quality=85,width=1242,height=839,format=auto/uploads/project/240155/cover_1242_818114dd701eea0ac41cb0613b14206f.jpg",
-          "image":""
+          "image":"test.jpg"
        }
     },
     {
@@ -22,7 +22,7 @@
          "category":2,
          "popularity":7,
          "image_url":"https://aws1.discourse-cdn.com/business7/uploads/d5forumtest/optimized/2X/7/785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg",
-         "image":""
+         "image":"test.jpg"
        }
     },
     {
@@ -34,8 +34,8 @@
          "price":5.99,
          "category":1,
          "popularity":4,
-         "image_url":"https://static.skillshare.com/cdn-cgi/image/quality=85,width=1242,height=839,format=auto/uploads/project/240155/cover_1242_818114dd701eea0ac41cb0613b14206f.jpg",
-         "image":""
+         "image_url":"https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg",
+         "image":"test.jpg"
       }
    },
    {
@@ -47,8 +47,8 @@
         "price":4.99,
         "category":2,
         "popularity":7,
-        "image_url":"https://aws1.discourse-cdn.com/business7/uploads/d5forumtest/optimized/2X/7/785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg",
-        "image":""
+        "image_url":"https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80",
+        "image":"test.jpg"
       }
    },
    {
@@ -60,8 +60,8 @@
          "price":5.99,
          "category":1,
          "popularity":4,
-         "image_url":"https://static.skillshare.com/cdn-cgi/image/quality=85,width=1242,height=839,format=auto/uploads/project/240155/cover_1242_818114dd701eea0ac41cb0613b14206f.jpg",
-         "image":""
+         "image_url":"https://wallpaperaccess.com/full/267434.jpg",
+         "image":"test.jpg"
       }
    },
    {
@@ -73,8 +73,8 @@
         "price":4.99,
         "category":2,
         "popularity":7,
-        "image_url":"https://aws1.discourse-cdn.com/business7/uploads/d5forumtest/optimized/2X/7/785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg",
-        "image":""
+        "image_url":"https://assets.hongkiat.com/uploads/100-absolutely-beautiful-nature-wallpapers-for-your-desktop/blue-sea-sunset.jpg",
+        "image":"test.jpg"
       }
    },
    {
@@ -86,8 +86,8 @@
          "price":5.99,
          "category":1,
          "popularity":4,
-         "image_url":"https://static.skillshare.com/cdn-cgi/image/quality=85,width=1242,height=839,format=auto/uploads/project/240155/cover_1242_818114dd701eea0ac41cb0613b14206f.jpg",
-         "image":""
+         "image_url":"https://free4kwallpapers.com/uploads/originals/2017/06/20/galactic-render-wallpaper.jpg",
+         "image":"test.jpg"
       }
    },
    {
@@ -99,8 +99,8 @@
         "price":4.99,
         "category":2,
         "popularity":7,
-        "image_url":"https://aws1.discourse-cdn.com/business7/uploads/d5forumtest/optimized/2X/7/785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg",
-        "image":""
+        "image_url":"https://img5.goodfon.com/wallpaper/nbig/a/ad/khyzyl-saleem-by-khyzyl-saleem-concept-art-transport-vehicle.jpg",
+        "image":"test.jpg"
       }
    },
    {
@@ -112,8 +112,8 @@
          "price":5.99,
          "category":1,
          "popularity":4,
-         "image_url":"https://static.skillshare.com/cdn-cgi/image/quality=85,width=1242,height=839,format=auto/uploads/project/240155/cover_1242_818114dd701eea0ac41cb0613b14206f.jpg",
-         "image":""
+         "image_url":"https://wallpapershome.com/images/pages/pic_h/23277.jpg",
+         "image":"test.jpg"
       }
    },
    {
@@ -125,8 +125,8 @@
         "price":4.99,
         "category":2,
         "popularity":7,
-        "image_url":"https://aws1.discourse-cdn.com/business7/uploads/d5forumtest/optimized/2X/7/785180be5d83296af342419851b8686b474891d9_2_1035x582.jpeg",
-        "image":""
+        "image_url":"https://free4kwallpapers.com/uploads/originals/2019/01/12/rendered-scales-wallpaper.jpg",
+        "image":"test.jpg"
       }
    }
 ]

@@ -29,12 +29,12 @@
                             <div class="card h-100 card-fill">
                                 <div class="image-div">
                                 {% if asset.image %}
-                                <a href="">
+                                <a href="{% url 'asset_detail' asset.id %}">
                                     <img class="card-img-top img-fluid fit-image-center" style="" src="{{ asset.image_url }}" alt="{{ asset.name }}">
                                 </a>
                                 
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'asset_detail' asset.id %}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="{{ asset.name }}">
                                 </a>
                                 {% endif %}

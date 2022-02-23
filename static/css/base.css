@@ -2,7 +2,17 @@ html {
     height: 100%;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    background: #000d1d;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #32d6c079;
+}
+
 body {
+    background-color: #000d1d !important;
     background: url('/media/WHG1m7.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 200px);
@@ -36,6 +46,13 @@ body {
 .nav-buttons-1{
     color: #00aeec;
     margin-right: 3rem!important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+
 }
 
 .logo-style {
@@ -73,7 +90,7 @@ body {
   }
 
 .card-fill {
-    background: radial-gradient(circle at center, #0274b8, #0274b8, #02bdb7, #0274b8);
+    background: radial-gradient(circle at center, #0274b8d6, #0274b8d6, #0ea6a1ba, #0274b8d6);
     background-size:660px 660px;
     border-radius: 0.2em;
     border-style: solid;
@@ -106,7 +123,15 @@ body {
 .card-body-style{
     display: flex;
     align-items: flex-end;
-    text-shadow: 0 0 black;
+    text-shadow: 0 0 #5efee8;
+    color: #32d6bf;
+}
+
+.description-style{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-shadow: 0 0 #5efee8;
+    color: aqua;
 }
 
 .button-style{
@@ -167,7 +192,17 @@ input::placeholder {
 
 @media (min-width: 992px) {
     .header-style {
-        padding-top: 150px;
+        padding-top: 142px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-style {
+        padding-top: 89px;
+    }
+
+    body {
+        height: calc(100vh - 89px);
     }
 }
 
