@@ -5,9 +5,9 @@
                 View Assets
             </a>
             <div class="dropdown-menu menu-style" aria-labelledby="all-assets">
-                <a href="" class="dropdown-item menu-item">By Price</a>
-                <a href="" class="dropdown-item menu-item">By Popularity</a>
-                <a href="" class="dropdown-item menu-item">By Category</a>
+                <a href="{% url 'assets' %}?sort=price&direction=asc" class="dropdown-item menu-item">By Price</a>
+                <a href="{% url 'assets' %}?sort=popularity&direction=desc" class="dropdown-item menu-item">By Popularity</a>
+                <a href="{% url 'assets' %}?sort=category&direction=asc" class="dropdown-item menu-item">By Category</a>
                 <a href="{% url 'assets' %}" class="dropdown-item menu-item">All Assets</a>
             </div>
         </li>

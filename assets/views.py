@@ -10,8 +10,23 @@ def all_assets(request):
     assets = Asset.objects.all()
     query = None
     categories = None
+    direction = None
+    sort = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                assets = assets.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            assets = assets.order_by(sortkey)
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             assets = assets.filter(category__name__in=categories)
@@ -27,10 +42,13 @@ def all_assets(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             assets = assets.filter(queries)
 
+    active_sort = f'{sort}_{direction}'
+
     context = {
         'assets': assets,
         'search_criteria': query,
-        'current_categories': categories,
+        'active_categories': categories,
+        'active_sort': active_sort,
     }
 
     return render(request, 'assets/assets.html', context)
