@@ -17,10 +17,10 @@
                 Images/Graphics
             </a>
             <div class="dropdown-menu menu-style" aria-labelledby="images-graphics">
-                <a href="" class="dropdown-item menu-item">Digital renders</a>
-                <a href="" class="dropdown-item menu-item">Graphics</a>
-                <a href="" class="dropdown-item menu-item">Photographs</a>
-                <a href="" class="dropdown-item menu-item">All images</a>
+                <a href="{% url 'assets' %}?category=digital_renders" class="dropdown-item menu-item">Digital renders</a>
+                <a href="{% url 'assets' %}?category=graphics" class="dropdown-item menu-item">Graphics</a>
+                <a href="{% url 'assets' %}?category=photographs" class="dropdown-item menu-item">Photographs</a>
+                <a href="{% url 'assets' %}?category=digital_renders,graphics,photographs" class="dropdown-item menu-item">All images</a>
             </div>
         </li>
 
@@ -29,10 +29,10 @@
                 Audio/Music
             </a>
             <div class="dropdown-menu menu-style" aria-labelledby="audio">
-                <a href="" class="dropdown-item menu-item">Electronic music</a>
-                <a href="" class="dropdown-item menu-item">Background music</a>
-                <a href="" class="dropdown-item menu-item">Audio samples</a>
-                <a href="" class="dropdown-item menu-item">All audio</a>
+                <a href="{% url 'assets' %}?category=electronic_music" class="dropdown-item menu-item">Electronic music</a>
+                <a href="{% url 'assets' %}?category=background_music" class="dropdown-item menu-item">Background music</a>
+                <a href="{% url 'assets' %}?category=audio_samples" class="dropdown-item menu-item">Audio samples</a>
+                <a href="{% url 'assets' %}?category=electronic_music,background_music,audio_samples" class="dropdown-item menu-item">All audio</a>
             </div>
         </li>
 
@@ -41,10 +41,10 @@
                 Video
             </a>
             <div class="dropdown-menu menu-style" aria-labelledby="video">
-                <a href="" class="dropdown-item menu-item">Video renders</a>
-                <a href="" class="dropdown-item menu-item">Real footage</a>
-                <a href="" class="dropdown-item menu-item">Animated graphics</a>
-                <a href="" class="dropdown-item menu-item">All video</a>
+                <a href="{% url 'assets' %}?category=video_renders" class="dropdown-item menu-item">Video renders</a>
+                <a href="{% url 'assets' %}?category=real_footage" class="dropdown-item menu-item">Real footage</a>
+                <a href="{% url 'assets' %}?category=animated_graphics" class="dropdown-item menu-item">Animated graphics</a>
+                <a href="{% url 'assets' %}?category=video_renders,real_footage,animated_graphics" class="dropdown-item menu-item">All video</a>
             </div>
         </li>
     </ul>
