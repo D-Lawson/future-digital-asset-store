@@ -36,6 +36,13 @@
                 <small style="color: #009eec;"><i class="fa-solid fa-file-export mr-1" style="color: #35d8c1;"></i>
                     Purchased: {{ asset.popularity }}</small>
                 </div>
+                {% if asset.category %}
+                    <p class="mt-1 mb-0">
+                        <a class="description-category" href="{% url 'assets' %}?category={{ asset.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ asset.category.display_name }}
+                        </a>
+                    </p>
+                {% endif %}
         </div>
     </div>
 </div>
