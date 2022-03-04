@@ -71,6 +71,14 @@ body {
     color: #32d6bf !important;
 }
 
+.green{
+    color: #32d6bf;
+}
+
+.lime{
+    color: #87bd4c;
+}
+
 .page-heading{
     color: #32d6bf;
 }
@@ -146,6 +154,13 @@ body {
     border-color: black;
     padding: 5px;
     background-color: #00e7ff;
+}
+
+.button-style-2{
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    background-color: #00445c;
 }
 
 .purchased-text{
