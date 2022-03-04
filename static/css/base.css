@@ -222,6 +222,20 @@ select {
     background-color: #032d61 !important;
 }
 
+.to-top {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: transparent;
+    color: #32d6bf!important;
+}
+
+.to-top-cursor {
+    cursor: pointer;
+}
+
 /* ----- MEDIA QUERIES ----- */
 
 @media (min-width: 1200px) {
