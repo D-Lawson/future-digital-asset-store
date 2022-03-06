@@ -33,16 +33,32 @@
                 <p class="mb-0 description-style">{{ asset.name }}</p>
                 <p class="mb-0 text-left font-weight-bold" style="color: #77b5cb;">£{{ asset.price }}</p>
                 <p class="mt-3" style="color: aqua;">{{ asset.description }}</p>
-                <small style="color: #009eec;"><i class="fa-solid fa-file-export mr-1" style="color: #35d8c1;"></i>
-                    Purchased: {{ asset.popularity }}</small>
-                </div>
                 {% if asset.category %}
-                    <p class="mt-1 mb-0">
-                        <a class="description-category" href="{% url 'assets' %}?category={{ asset.category.name }}">
-                            <i class="fas fa-tag mr-1"></i>{{ asset.category.display_name }}
-                        </a>
-                    </p>
+                <p class="mt-1 mb-0 d-inline-block">
+                    <a class="description-category mr-5" href="{% url 'assets' %}?category={{ asset.category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ asset.category.display_name }}
+                    </a>
+                </p>
                 {% endif %}
+                <small style="color: #009eec;"><i class="fa-solid fa-file-export mr-1 d-inline-block" style="color: #35d8c1;"></i>
+                    Purchased: {{ asset.popularity }} times</small>
+            </div>
+            
+            <form class="form" action="{% url 'add_to_basket' asset.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row mt-2">   
+                    <div class="col-12">
+                        <a href="{% url 'assets' %}" class="btn button-style-2">
+                            <span class="icon">
+                                <i class="fas fa-caret-left lime"></i>
+                            </span>
+                            <span class="lime">Browse more assets</span>
+                        </a>
+                        <input type="submit" class="btn button-style-3" value="PURCHASE">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
         </div>
     </div>
 </div>

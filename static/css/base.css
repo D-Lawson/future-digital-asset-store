@@ -163,6 +163,14 @@ body {
     background-color: #00445c;
 }
 
+.button-style-3{
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    background-color: #00445c;
+    color: #12ece9 !important;
+}
+
 .purchased-text{
     background: #0d6381bf;
     border: #04608b;
