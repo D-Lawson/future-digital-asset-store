@@ -1,4 +1,7 @@
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from assets.models import Asset
+
 
 def basket_contents(request):
 
@@ -8,6 +11,17 @@ def basket_contents(request):
     total = 0
     asset_count = 0
     discount = 0
+    basket = request.session.get('basket', {})
+
+    for asset_id, quantity in basket.items():
+        asset = get_object_or_404(Asset, pk=asset_id)
+        total += quantity * asset.price
+        asset_count += quantity
+        basket_items.append({
+            'asset_id': asset_id,
+            'quantity': quantity,
+            'asset': asset,
+        })
 
     if total < settings.DISCOUNT_THRESHOLD:
         qualify_discount = settings.DISCOUNT_THRESHOLD - total

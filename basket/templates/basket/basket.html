@@ -25,7 +25,9 @@
             <div class="row">
                 <div class="col">
                     {% if basket_items %}
-                        <div class="table-responsive"></div>
+                        <div class="table-responsive">
+                            {{ basket_items }}
+                        </div>
                     {% else %}
                         <p class="green mb-5">Your container is empty.</p>
                         <a href="{% url 'assets' %}" class="btn rounded-0 button-style-2">
