@@ -55,6 +55,13 @@ body {
 
 }
 
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    margin-top: 0;
+}
+
 .logo-style {
     -webkit-background-clip: text;
     color:transparent;
@@ -77,6 +84,10 @@ body {
 
 .lime{
     color: #87bd4c;
+}
+
+.blue{
+    color: #0274b8;
 }
 
 .page-heading{
@@ -182,6 +193,12 @@ body {
     padding: 2px;
     bottom: -3px;
     right: 4px;
+}
+
+.table-border{
+    border-style: solid;
+    border-width: thin;
+    border-color: #23e9b2;
 }
 
 .summary-text{

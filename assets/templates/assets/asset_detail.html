@@ -46,6 +46,10 @@
             
             <form class="form" action="{% url 'add_to_basket' asset.id %}" method="POST">
                 {% csrf_token %}
+                <label>
+                    <input type="checkbox" id="printed" name="printed" data-item_id="{{ asset.id }}">
+                    <span>Printed?</span>
+                </label>
                 <div class="form-row mt-2">   
                     <div class="col-12">
                         <a href="{% url 'assets' %}" class="btn button-style-2">

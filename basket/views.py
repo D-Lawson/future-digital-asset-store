@@ -11,11 +11,18 @@ def view_basket(request):
 def add_to_basket(request, asset_id):
     """ Adds asset to basket """
 
-    quantity = 1
+    printed = request.POST.get('printed')
+
+    if printed == "on":
+        printed = "Yes"
+    else:
+        printed = "No"
+
     redirect_url = request.POST.get('redirect_url')
     basket = request.session.get('basket', {})
 
-    basket[asset_id] = quantity
+    basket[asset_id] = printed
 
     request.session['basket'] = basket
+    print(request.session['basket'])
     return redirect(redirect_url)

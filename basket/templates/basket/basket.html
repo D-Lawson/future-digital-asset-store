@@ -2,43 +2,107 @@
 {% load static %}
 
 {% block header %}
-    <div class="container header-style">
-        <div class="row">
-            <div class="col">
+<div class="container header-style">
+    <div class="row">
+        <div class="col">
 
-            </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block main_content %}
-    <div class="overlay"></div>
-        <div class="container mb-2">
-            <div class="row">
-                <div class="col">
-                    <hr>
-                    <h2 class="green mb-4">Asset Shopping Container</h2>
-                    <hr>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    {% if basket_items %}
-                        <div class="table-responsive">
-                            {{ basket_items }}
-                        </div>
-                    {% else %}
-                        <p class="green mb-5">Your container is empty.</p>
-                        <a href="{% url 'assets' %}" class="btn rounded-0 button-style-2">
-                            <span class="icon">
-                                <i class="fas fa-caret-left lime"></i>
-                            </span>
-                            <span class="lime">Browse more assets</span>
-                        </a>
-                    {% endif %}
-                </div>
-            </div>
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="green mb-4">Digital Asset Shopping Summary</h2>
+            <hr>
         </div>
-    
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {% if basket_items %}
+            <div class="table-responsive">
+                <table class="table table-sm table-border" style="background-color: rgba(0, 0, 0, 0.479);">
+                    <thead class="green">
+                        <tr>
+                            <th scope="col">Summary info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th class="text-center" scope="col">Printed?</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    {% for asset in basket_items %}
+                    <tr class="green">
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded fit-image-center" src="{{ asset.asset.image_url }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ asset.asset.name }}</strong></p>
+                            <p class="my-0 small text-muted">Asset number: {{ asset.asset.pk }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">£{{ asset.asset.price }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0 text-center">{{ asset.printed }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">£{{ asset.subtotal|floatformat:2 }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="pt-5 green text-right">
+                            <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
+                            <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                            <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                            {% if qualify_discount > 0 %}
+                            <p class="mb-1 text-danger">
+                                You could get a 15% discount by spending <strong>£{{ qualify_discount|floatformat:2  }}</strong>
+                                more!
+                            </p>
+                            {% else %}
+                            <p class="mb-1 blue">
+                                15% discount of <strong>£{{ display_discount|floatformat:2  }}</strong> applied
+                            </p>  
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'assets' %}" class="btn btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left text-warning"></i>
+                                </span>
+                                <span class="text-warning">KEEP SHOPPING</span>
+                            </a>
+                            <a href="" class="btn btn-lg">
+                                <span class="logo-style">SECURE CHECKOUT</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock logo-style"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <p class="green mb-5">Your container is empty.</p>
+            <a href="{% url 'assets' %}" class="btn rounded-0 button-style-2">
+                <span class="icon">
+                    <i class="fas fa-caret-left lime"></i>
+                </span>
+                <span class="lime">Browse more assets</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}
