@@ -262,6 +262,11 @@ select {
     background-color: #032d61 !important;
 }
 
+
+a:hover {
+    color: #32d6bf;
+}
+
 .to-top {
     height: 42px;
     width: 42px;

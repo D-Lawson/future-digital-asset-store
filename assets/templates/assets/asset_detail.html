@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block header %}
-    <div class="container header-style">
-        <div class="row">
-            <div class="col">
+<div class="container header-style">
+    <div class="row">
+        <div class="col">
 
-            </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block main_content %}
@@ -18,18 +18,18 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-3">
             <div class="my-5">
                 {% if asset.image.url %}
-                    <a href="{{ asset.image_url }}" target="_blank">
-                        <img class="card-img-top img-fluid" src="{{ asset.image_url }}" alt="{{ asset.name }}">
-                    </a>
-                    {% else %}
-                    <a href="">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="{{ asset.name }}">
-                    </a>
+                <a href="{{ asset.image_url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ asset.image_url }}" alt="{{ asset.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="{{ asset.name }}">
+                </a>
                 {% endif %}
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="mb-5 mt-md-5">
+            <div class="mb-4 mt-md-5">
                 <p class="mb-0 description-style">{{ asset.name }}</p>
                 <p class="mb-0 text-left font-weight-bold" style="color: #77b5cb;">£{{ asset.price }}</p>
                 <p class="mt-3" style="color: aqua;">{{ asset.description }}</p>
@@ -40,31 +40,45 @@
                     </a>
                 </p>
                 {% endif %}
-                <small style="color: #009eec;"><i class="fa-solid fa-file-export mr-1 d-inline-block" style="color: #35d8c1;"></i>
+                <small style="color: #009eec;"><i class="fa-solid fa-file-export mr-1 d-inline-block"
+                        style="color: #35d8c1;"></i>
                     Purchased: {{ asset.popularity }} times</small>
             </div>
-            
+
             <form class="form" action="{% url 'add_to_basket' asset.id %}" method="POST">
                 {% csrf_token %}
+                <div class="form-row mt-2"></div>
+                {% with asset.print_sizes as s %}
+                {% if s %}
+                <div class="col-12">
+                    <p class="green"><strong>Print size:</strong></p>
+                    <select class="form-control w-50 input-style mb-4" name="print_size" id='id_print_size'>
+                        <option value="Digital only" selected>Digital download only</option>
+                        <option value="297mm x 420mm">297mm x 420mm (includes digital)</option>
+                        <option value="420mm x 594mm">420mm x 594mm (includes digital)</option>
+                    </select>
+                </div>
+                {% endif %}
                 <label>
                     <input type="checkbox" id="printed" name="printed" data-item_id="{{ asset.id }}">
                     <span>Printed?</span>
                 </label>
-                <div class="form-row mt-2">   
-                    <div class="col-12">
-                        <a href="{% url 'assets' %}" class="btn button-style-2">
-                            <span class="icon">
-                                <i class="fas fa-caret-left lime"></i>
-                            </span>
-                            <span class="lime">Browse more assets</span>
-                        </a>
-                        <input type="submit" class="btn button-style-3" value="PURCHASE">
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+                <div class="col-12">
+                    <a href="{% url 'assets' %}" class="btn button-style-2">
+                        <span class="icon">
+                            <i class="fas fa-caret-left lime"></i>
+                        </span>
+                        <span class="lime">Browse more assets</span>
+                    </a>
+                    <input type="submit" class="btn button-style-3" value="PURCHASE">
                 </div>
-            </form>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                {% endwith %}
         </div>
+        </form>
     </div>
+</div>
 </div>
 
 {% endblock %}
