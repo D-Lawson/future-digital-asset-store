@@ -51,7 +51,21 @@
                             <p class="my-0">£{{ asset.asset.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <p class="my-0 text-center">{{ asset.quantity }}</p>
+                            <form class="form update-form" action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group w-50">
+                                    <div class="input-group quantity buttons_added mb-4">
+                                        <input type="button" value="-" class="minus">
+                                        <input class="form-control qty_input input-style qty" type="number" name="quantity" title="Qty" value="{{ asset.quantity }}" min="1" max="99" step="1" data-item_id="{{ asset.asset_id }}" id="id_qty_{{ asset.asset_id }}">
+                                        <input type="button" value="+" class="plus">
+                                    </div>
+                                </div>
+                                {% if asset.asset.print_sizes %}
+                                    <input type="hidden" name="asset_size" value="{{ asset.size }}">
+                                {% endif %}
+                            </form>
+                            <a class="update-qty text-info"><small>Update</small></a>
+                            <a class="remove-asset text-danger float-right" id="remove_{{ asset.asset_id }}" data-size="{{ asset.size }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">£{{ asset.subtotal|floatformat:2 }}</p>
@@ -106,4 +120,29 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block afterjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-qty').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-asset').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('size');
+        var url = `/basket/remove/${assetId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}

@@ -245,6 +245,28 @@ input::placeholder {
     color: #0684b3 !important;
 }
 
+.qty_input{
+    max-width: 60px !important;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+ background-color: #ffffff00;
+ border: 1px solid #32d6bf;
+ cursor:pointer;
+ color: #77d4f7 !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 select {
     color: #0684b3 !important;
 }
@@ -277,7 +299,9 @@ a:hover {
     color: #32d6bf!important;
 }
 
-.to-top-cursor {
+.to-top-cursor,
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 
