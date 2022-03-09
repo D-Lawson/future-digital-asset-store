@@ -27,7 +27,7 @@
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div class="nav-buttons"><i class="fas fa-gears fa-lg icon-style"></i></div>
-                <p class="my-0 nav-buttons">Options</p>
+                <p class="my-0 nav-buttons">Site Options</p>
             </div>
         </a>
         <div class="dropdown-menu menu-style" aria-labelledby="user-options">
@@ -47,7 +47,13 @@
         <a class="nav-link d-block d-lg-none" href="{% url 'view_basket' %}">
             <div class="text-center">
                 <div><i class="fas fa-cart-shopping fa-lg nav-buttons icon-style"></i></div>
-                <p class="my-0 nav-buttons">£0.00</p>
+                <p class="my-0 nav-buttons">
+                    {% if grand_total %}
+                    £{{ grand_total|floatformat:2 }}
+                    {% else %}
+                    £0.00
+                    {% endif %}
+                </p>
             </div>
         </a>
     </li>

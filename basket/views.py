@@ -11,17 +11,28 @@ def view_basket(request):
 def add_to_basket(request, asset_id):
     """ Adds asset to basket """
 
-    printed = request.POST.get('printed')
-
-    if printed == "on":
-        printed = "Yes"
-    else:
-        printed = "No"
-
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+
+    size = None
+    if 'print_size' in request.POST:
+        size = request.POST['print_size']
+
     basket = request.session.get('basket', {})
 
-    basket[asset_id] = printed
+    if size:
+        if asset_id in list(basket.keys()):
+            if size in basket[asset_id]['asset_by_size'].keys():
+                basket[asset_id]['asset_by_size'][size] += quantity
+            else:
+                basket[asset_id]['asset_by_size'][size] = quantity
+        else:
+            basket[asset_id] = {'asset_by_size': {size: quantity}}
+    else:
+        if asset_id in list(basket.keys()):
+            basket[asset_id] += quantity
+        else:
+            basket[asset_id] = quantity
 
     request.session['basket'] = basket
     print(request.session['basket'])

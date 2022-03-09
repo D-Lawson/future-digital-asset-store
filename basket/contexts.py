@@ -5,44 +5,37 @@ from assets.models import Asset
 
 
 def basket_contents(request):
-
     """ Function for handling contexts for basket contents """
 
     basket_items = []
     total = 0
     asset_count = 0
     discount = 0
-    basket = request.session.get('basket', {})
     qualify_discount = 0
+    basket = request.session.get('basket', {})
     delivery = 0
-    quantity = 1
 
-    any_printed = list(basket.values())
-    if 'Yes' in any_printed:
-        delivery = Decimal(3.99)
-    else:
-        delivery = 0
-
-    print_qty = any_printed.count("Yes")
-    
-    print(print_qty)
-
-    for asset_id, printed in basket.items():
-        asset = get_object_or_404(Asset, pk=asset_id)
-        total += quantity * asset.price
-        asset_count += quantity
-        subtotal = asset.price
-        if 'Yes' in printed:
-            subtotal = asset.price + Decimal(4.99)
-        
-        basket_items.append({
-            'asset_id': asset_id,
-            'asset': asset,
-            'printed': printed,
-            'subtotal': subtotal
-        })
-
-    total = total + (print_qty * Decimal(4.99))
+    for asset_id, asset_data in basket.items():
+        if isinstance(asset_data, int):
+            asset = get_object_or_404(Asset, pk=asset_id)
+            total += asset_data * asset.price
+            asset_count += asset_data
+            basket_items.append({
+                'asset_id': asset_id,
+                'asset': asset,
+                'quantity': asset_data,
+            })
+        else:
+            asset = get_object_or_404(Asset, pk=asset_id)
+            for size, quantity in asset_data['asset_by_size'].items():
+                total += quantity * asset.price
+                asset_count += quantity
+                basket_items.append({
+                    'asset_id': asset_id,
+                    'asset': asset,
+                    'quantity': quantity,
+                    'size': size,
+                })
 
     if total < settings.DISCOUNT_THRESHOLD:
         qualify_discount = settings.DISCOUNT_THRESHOLD - total
@@ -61,7 +54,6 @@ def basket_contents(request):
         'display_discount': display_discount,
         'delivery': delivery,
         'grand_total': grand_total,
-
     }
 
     return context

@@ -50,7 +50,7 @@
                 <div class="form-row mt-2"></div>
                 {% with asset.print_sizes as s %}
                 {% if s %}
-                <div class="col-12">
+                <div class="col-12 pl-0">
                     <p class="green"><strong>Print size:</strong></p>
                     <select class="form-control w-50 input-style mb-4" name="print_size" id='id_print_size'>
                         <option value="Digital only" selected>Digital download only</option>
@@ -59,12 +59,15 @@
                     </select>
                 </div>
                 {% endif %}
-                <label>
-                    <input type="checkbox" id="printed" name="printed" data-item_id="{{ asset.id }}">
-                    <span>Printed?</span>
-                </label>
-
-                <div class="col-12">
+                <div class="col-12pl-0">
+                    <p class="mt-3"><strong>Quantity:</strong></p>
+                    <div class="form-group w-50">
+                        <div class="input-group">
+                            <input class="form-control qty_input input-style" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ asset.id }}" id="id_qty_{{ asset.id }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 pl-0">
                     <a href="{% url 'assets' %}" class="btn button-style-2">
                         <span class="icon">
                             <i class="fas fa-caret-left lime"></i>

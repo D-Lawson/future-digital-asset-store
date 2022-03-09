@@ -32,7 +32,7 @@
                             <th scope="col">Summary info</th>
                             <th scope="col"></th>
                             <th scope="col">Price</th>
-                            <th class="text-center" scope="col">Printed?</th>
+                            <th class="text-center" scope="col">Quantity</th>
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
@@ -51,7 +51,7 @@
                             <p class="my-0">£{{ asset.asset.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <p class="my-0 text-center">{{ asset.printed }}</p>
+                            <p class="my-0 text-center">{{ asset.quantity }}</p>
                         </td>
                         <td class="py-3">
                             <p class="my-0">£{{ asset.subtotal|floatformat:2 }}</p>
