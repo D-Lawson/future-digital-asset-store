@@ -300,8 +300,8 @@ a:hover {
 }
 
 .to-top-cursor,
-.update-link,
-.remove-item {
+.update-qty,
+.remove-asset {
     cursor: pointer;
 }
 
