@@ -79,7 +79,7 @@ body {
 }
 
 .green{
-    color: #32d6bf;
+    color: #32d6bf !important;
 }
 
 .lime{
@@ -304,6 +304,27 @@ a:hover {
 .remove-asset {
     cursor: pointer;
 }
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.toast-bg{
+    background-color: transparent !important;
+}
+}
+
 
 /* ----- MEDIA QUERIES ----- */
 
