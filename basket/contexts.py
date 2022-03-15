@@ -28,6 +28,8 @@ def basket_contents(request):
         else:
             asset = get_object_or_404(Asset, pk=asset_id)
             for size, quantity in asset_data['asset_by_size'].items():
+                if size != "Digital only":
+                    delivery = Decimal(3.99)
                 total += quantity * asset.price
                 asset_count += quantity
                 basket_items.append({
@@ -55,5 +57,7 @@ def basket_contents(request):
         'delivery': delivery,
         'grand_total': grand_total,
     }
+
+    print(request.session.get('basket'))
 
     return context

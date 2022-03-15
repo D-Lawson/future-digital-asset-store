@@ -45,7 +45,7 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ asset.asset.name }}</strong></p>
-                            <p class="my-0"><strong>Print size: </strong>{% if asset.asset.print_sizes %}{{ asset.size|upper }}{% else %}N/A{% endif %}</p>
+                            {% if asset.asset.print_sizes %}<p class="my-0"><strong>Print size: </strong>{{ asset.size|upper }}{% else %}</p>{% endif %}
                             <p class="my-0 small text-muted">Asset number: {{ asset.asset.pk }}</p>
                         </td>
                         <td class="py-3">
