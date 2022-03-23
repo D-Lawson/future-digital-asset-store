@@ -76,7 +76,7 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     asset = models.ForeignKey(
         Asset, null=False, blank=False, on_delete=models.CASCADE)
-    asset_size = models.CharField(max_length=2, null=True, blank=True)
+    asset_size = models.CharField(max_length=25, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     total_sum = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
