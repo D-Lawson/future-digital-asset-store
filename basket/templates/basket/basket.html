@@ -45,7 +45,7 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ asset.asset.name }}</strong></p>
-                            {% if asset.asset.print_sizes %}<p class="my-0"><strong>Print size: </strong>{{ asset.size|upper }}{% else %}</p>{% endif %}
+                            {% if asset.asset.print_sizes %}<p class="my-0"><strong>Print size: </strong>{{ asset.size|upper }}</p>{% else %}{% endif %}
                             <p class="my-0 small text-muted">Asset number: {{ asset.asset.pk }}</p>
                         </td>
                         <td class="py-3">
@@ -55,18 +55,22 @@
                             <form class="form update-form" action="{% url 'update_basket' asset.asset_id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group w-50">
+                                    {% if asset.asset.print_sizes and asset.size != "Digital only" %}
                                     <div class="input-group quantity buttons_added mb-4">
                                         <input type="button" value="-" class="minus">
                                         <input class="form-control qty_input input-style qty" type="number" name="quantity" title="Qty" value="{{ asset.quantity }}" min="1" max="99" step="1" data-asset_id="{{ asset.asset_id }}" id="id_qty_{{ asset.asset_id }}">
                                         <input type="button" value="+" class="plus">
                                     </div>
+                                    {% else %}<p>{{ asset.quantity }}</p>{% endif %}
                                 </div>
                                 {% if asset.asset.print_sizes %}
                                     <input type="hidden" name="asset_size" value="{{ asset.size }}">
                                 {% endif %}
                             </form>
-                            <a class="update-qty text-info"><small>Update</small></a>
-                            <a class="remove-asset text-danger float-right" id="remove_{{ asset.asset_id }}" data-asset_size="{{ asset.size }}"><small>Remove</small></a>
+                            {% if asset.asset.print_sizes and asset.size != "Digital only" %}
+                            <a class="update-qty text-info"><small>Update &nbsp |</small></a>
+                            {% endif %}
+                            <a class="remove-asset text-danger ml-2" id="remove_{{ asset.asset_id }}" data-asset_size="{{ asset.size }}"><i class="fa-solid fa-xmark"></i></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">£{{ asset.asset.price | calc_subtotal:asset.quantity | floatformat:2 }}</p>
@@ -98,7 +102,7 @@
                                 </span>
                                 <span class="text-warning">KEEP SHOPPING</span>
                             </a>
-                            <a href="" class="btn btn-lg">
+                            <a href="{% url 'checkout' %}" class="btn btn-lg">
                                 <span class="logo-style">SECURE CHECKOUT</span>
                                 <span class="icon">
                                     <i class="fas fa-lock logo-style"></i>

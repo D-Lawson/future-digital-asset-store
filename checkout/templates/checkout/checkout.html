@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% load basket_tools %}
+
+{% block header %}
+<div class="container header-style">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="page-heading mb-4 mt-4">Checkout</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-5 col-lg-6 order-lg-last">
+            <p class="description-style">Summary of assets - {{ asset_count }} in total</p>
+            <div class="row">
+                <div class="col-10 text-right offset-2">
+                    <p class="mb-1 mt-0 description-style"><u>Subtotal</u></p>
+                </div>
+            </div>
+            {% for asset in basket_items %}
+                <div class="row">
+                    <div class="col-2">
+                        <a href="{% url 'asset_detail' asset.asset.id %}">
+                            {% if asset.asset.image %}
+                                <img class="w-100" src="{{ asset.asset.image_url }}" alt="{{ asset.name }}">
+                            {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ asset.name }}">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col-7">
+                        <p class="m-0 description-style">{{ asset.asset.name }}</p>
+                        <p class="m-0 small blue-label">Size: {% if asset.asset.print_sizes %}{{ asset.size|upper }}{% else %}N/A{% endif %}</p>
+                        <p class="m-0 small description-style">Qty: {{ asset.quantity }}</p>
+                    </div>
+                    <div class="col-3 text-right">
+                        <p class="m-0 small description-style">£{{ asset.asset.price | calc_subtotal:asset.quantity }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="row text-right">
+                <div class="col-9">
+                    <p class="m-0 green">Order Total:</p>
+                    <p class="m-0 green">Delivery:</p>
+                    <p class="m-0 green">Grand Total:</p>
+                </div>
+                <div class="col-3">
+                    <p class="m-0 green">£{{ total | floatformat:2 }}</p>
+                    <p class="m-0 green">£{{ delivery | floatformat:2 }}</p>
+                    <p class="m-0 green"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="description-style">Final step - please enter your details below to complete your order</p>
+            <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-5 input-style">
+                    <legend class="small px-2 w-auto blue-label">Personal details</legend>
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
+                </fieldset>
+                <fieldset class="rounded px-3 mb-5 input-style">
+                    <legend class="small px-2 w-auto blue-label">Delivery details</legend>
+                    {{ order_form.phone_number | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.town_or_city | as_crispy_field }}
+                    {{ order_form.address_line_1 | as_crispy_field }}
+                    {{ order_form.address_line_2 | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                    <div class="form-check form-check-inline float-right mr-0">
+                        {% if user.is_authenticated %}
+                            <label class="form-check-label" for="id-save-info">Save this information for next time?</label>
+                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                        {% else %}
+                            <label class="form-check-label text-info" for="id-save-info"> To save,
+                                <a class="text-info green" href="{% url 'account_signup' %}">create a new account account</a> or 
+                                <a class="text-info green" href="{% url 'account_login' %}">login</a> to your account
+                            </label>
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <fieldset class="px-3 input-style">
+                    <legend class="small px-2 w-auto blue-label">Card details</legend>
+                    <div class="mb-3" id="card-element"></div>
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                </fieldset>
+
+                <div class="text-right mt-5 mb-2">                    
+                    <a href="{% url 'view_basket' %}" class="btn">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left text-warning"></i>
+                        </span>
+                        <span class="text-warning">Adjust basket</span>
+                    </a>
+                    <button id="submit-button" class="btn">
+                        <span class="font-weight-bold logo-style">Complete Order</span>
+                        <span class="icon">
+                            <i class="fas fa-lock logo-style"></i>
+                        </span>
+                    </button>
+                    <p class="small text-danger my-0">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>By proceeding, your card will be billed <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

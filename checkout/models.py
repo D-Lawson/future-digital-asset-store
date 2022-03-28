@@ -42,8 +42,8 @@ class Order(models.Model):
         """
         self.order_total = self.lineitems.aggregate(Sum('total_sum'))[
             'total_sum__sum']
-        for item in self.lineitems:
-            if item.asset_by_size != 'Digital only':
+        for asset in self.lineitems:
+            if asset.asset_by_size != 'Digital only':
                 self.delivery_cost = 3.99
             else:
                 self.delivery_cost = 0

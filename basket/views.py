@@ -56,9 +56,8 @@ def update_basket(request, asset_id):
     size = None
     if 'print_size' in request.POST:
         size = request.POST['print_size']
-
     basket = request.session.get('basket', {})
-
+    
     if size:
         if quantity > 0:
             basket[asset_id]['asset_by_size'][size] = quantity
