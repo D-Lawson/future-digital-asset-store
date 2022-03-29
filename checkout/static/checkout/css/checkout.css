@@ -1,0 +1,18 @@
+.StripeElement,
+.form-input-style {
+  background-color: #000d1d !important;
+  border: 1px solid #0684b3 !important;
+  border-radius: 0px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #000d1d !important;
+}
+
+.form-input-style::placeholder {
+    color: #aab7c4;
+}
