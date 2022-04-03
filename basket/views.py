@@ -88,14 +88,14 @@ def remove_asset(request, asset_id):
 
     try:
         size = None
-        if 'print_size' in request.POST:
-            size = request.POST['print_size']
+        if 'asset_size' in request.POST:
+            size = request.POST['asset_size']
 
         basket = request.session.get('basket', {})
 
         if size:
             del basket[asset_id]['asset_by_size'][size]
-            if not basket[asset_id]['asset_by_size']:
+            if not basket[asset_id]['asset_by_size'].keys():
                 basket.pop(asset_id)
             messages.success(request, f'{size.upper()} for {asset.name} removed from basket')
         else:
