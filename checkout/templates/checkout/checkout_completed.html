@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block header %}
+<div class="container header-style">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="page-heading mb-4 mt-4">Thank you</h2>
+            <p class="green">Please view your completed order summary below.  An email copy will be sent to <strong>{{ order.email }}</strong>.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-7"></div>
+    </div>
+    <div class="row">
+        
+        
+    </div>
+</div>
+</div>
+
+{% endblock %}

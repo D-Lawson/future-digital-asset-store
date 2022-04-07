@@ -17,13 +17,13 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-3">
             <div class="my-5">
-                {% if asset.image.url %}
+                {% if asset.image_url %}
                 <a href="{{ asset.image_url }}" target="_blank">
                     <img class="card-img-top img-fluid" src="{{ asset.image_url }}" alt="{{ asset.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="{{ asset.name }}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ asset.image }}" alt="{{ asset.name }}">
                 </a>
                 {% endif %}
             </div>

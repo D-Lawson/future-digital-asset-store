@@ -40,7 +40,7 @@
                             {% if asset.asset.image %}
                                 <img class="w-100" src="{{ asset.asset.image_url }}" alt="{{ asset.name }}">
                             {% else %}
-                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ asset.name }}">
+                                <img class="w-100" src="{{ MEDIA_URL }}placeholder.png" alt="{{ asset.name }}">
                             {% endif %}
                         </a>
                     </div>
@@ -73,18 +73,18 @@
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5 input-style">
                     <legend class="small px-2 w-auto blue-label">Personal details</legend>
-                    {{ order_form.full_name | as_crispy_field }}
-                    {{ order_form.email | as_crispy_field }}
+                    {{ create_order.full_name | as_crispy_field }}
+                    {{ create_order.email | as_crispy_field }}
                 </fieldset>
                 <fieldset class="rounded px-3 mb-5 input-style">
                     <legend class="small px-2 w-auto blue-label">Delivery details</legend>
-                    {{ order_form.phone_number | as_crispy_field }}
-                    {{ order_form.country | as_crispy_field }}
-                    {{ order_form.postcode | as_crispy_field }}
-                    {{ order_form.town_or_city | as_crispy_field }}
-                    {{ order_form.address_line_1 | as_crispy_field }}
-                    {{ order_form.address_line_2 | as_crispy_field }}
-                    {{ order_form.county | as_crispy_field }}
+                    {{ create_order.phone_number | as_crispy_field }}
+                    {{ create_order.country | as_crispy_field }}
+                    {{ create_order.postcode | as_crispy_field }}
+                    {{ create_order.town_or_city | as_crispy_field }}
+                    {{ create_order.address_line_1 | as_crispy_field }}
+                    {{ create_order.address_line_2 | as_crispy_field }}
+                    {{ create_order.county | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info">Save this information for next time?</label>

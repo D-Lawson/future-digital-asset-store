@@ -54,8 +54,8 @@ def update_basket(request, asset_id):
     quantity = int(request.POST.get('quantity'))
 
     size = None
-    if 'print_size' in request.POST:
-        size = request.POST['print_size']
+    if 'asset_size' in request.POST:
+        size = request.POST['asset_size']
     basket = request.session.get('basket', {})
     
     if size:
@@ -103,8 +103,7 @@ def remove_asset(request, asset_id):
             messages.success(request, f'{asset.name} removed from basket')
 
         request.session['basket'] = basket
-        return HttpResponse(status=200)
-        
+        return HttpResponse(status=200)        
     except Exception as e:
         message.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)

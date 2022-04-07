@@ -1,4 +1,5 @@
 import uuid
+from decimal import Decimal
 
 from django.db import models
 from django.db.models import Sum
@@ -41,17 +42,12 @@ class Order(models.Model):
          delivery)
         """
         self.order_total = self.lineitems.aggregate(Sum('total_sum'))[
-            'total_sum__sum']
-        for asset in self.lineitems:
-            if asset.asset_by_size != 'Digital only':
-                self.delivery_cost = 3.99
-            else:
-                self.delivery_cost = 0
+            'total_sum__sum'] or 0
 
         if self.order_total < settings.DISCOUNT_THRESHOLD:
-            self.discount_amount = 0
+            self.discount_amount = Decimal(0)
         else:
-            self.discount_amount = self.order_total * 0.15
+            self.discount_amount = Decimal(self.order_total) * Decimal(0.15)
 
         self.grand_total = self.order_total + self.delivery_cost - \
             self.discount_amount

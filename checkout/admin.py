@@ -21,11 +21,11 @@ class OrderAdmin(admin.ModelAdmin):
               'email', 'phone_number', 'country',
               'postcode', 'town_or_city', 'address_line_1',
               'address_line_2', 'county',
-              'order_total', 'grand_total', 'discount_amount',)
+              'order_total', 'delivery_cost', 'discount_amount', 'grand_total',)
 
     list_display = ('order_id', 'date', 'full_name',
-                    'order_total', 'delivery_cost',
-                    'grand_total', 'discount_amount',)
+                    'order_total', 'delivery_cost', 'discount_amount',
+                    'grand_total',)
 
     ordering = ('-date',)
 
