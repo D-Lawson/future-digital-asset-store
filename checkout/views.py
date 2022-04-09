@@ -52,6 +52,10 @@ def checkout(request):
         create_order = OrderForm(collect_form_data)
         if create_order.is_valid():
             order = create_order.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_basket = json.dumps(basket)
+            order.save()
             physical_item = False
             for asset_id, asset_data in basket.items():
                 if not isinstance(asset_data, int):
