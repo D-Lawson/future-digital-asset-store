@@ -10,6 +10,8 @@
     <div class="toast-body toast-bg green">
         {{ message }}        
     </div>
+
+    {% if grand_total %}
     <div class="row">
         <div class="col mb-2">
             <a href="{% url 'view_basket' %}" class="btn btn-black btn-block">
@@ -20,4 +22,5 @@
             </a>
         </div>
     </div>
+    {% endif %}
 </div>

@@ -385,3 +385,67 @@ a:hover {
 }
 
 
+/* Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color: #00aeec;
+}
+
+.allauth-form-inner-content input {
+    background-color: #000d1d !important;
+    border: 1px solid #32d6bf!important;
+    border-radius: 0px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #00aeec !important;
+    -webkit-box-shadow: 0 0 0px 1000px #000d1d inset;
+  }
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content label {
+    color: #00aeec;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #2ec8b2;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000d1d;
+    border: 1px solid #006992;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #2ec8b2;
+    background-color: #000d1d;
+    border: 1px solid #3787aa;
+}
+
+.allauth-form-inner-content a {
+	color: #32d6bf;
+}
