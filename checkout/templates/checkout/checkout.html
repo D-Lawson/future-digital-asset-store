@@ -79,12 +79,12 @@
                 <fieldset class="rounded px-3 mb-5 input-style">
                     <legend class="small px-2 w-auto blue-label">Delivery details</legend>
                     {{ create_order.phone_number | as_crispy_field }}
-                    {{ create_order.country | as_crispy_field }}
-                    {{ create_order.postcode | as_crispy_field }}
-                    {{ create_order.town_or_city | as_crispy_field }}
                     {{ create_order.address_line_1 | as_crispy_field }}
                     {{ create_order.address_line_2 | as_crispy_field }}
+                    {{ create_order.town_or_city | as_crispy_field }}
                     {{ create_order.county | as_crispy_field }}
+                    {{ create_order.postcode | as_crispy_field }}
+                    {{ create_order.country | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info">Save this information for next time?</label>
