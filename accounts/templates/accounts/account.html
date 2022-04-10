@@ -23,6 +23,21 @@
             <h2 class="page-heading mb-4 mt-4">My account</h2>
         </div>
     </div>
-    {{ account }}
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="menu-item">Stored delivery details</p>
+            <form class="mt-3" action="{% url 'account' %}" method="POST" id="account-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn float-right">
+                    <span class="logo-style">UPDATE DETAILS <i class="fas fa-floppy-disk logo-style"></i></span>
+                </button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="menu-item">Previous orders</p>
+            {{ orders }}
+        </div>
+    </div>
 
 {% endblock %}
