@@ -1,0 +1,1 @@
+Digital Asset order confirmation for order number {{ order.order_id }}

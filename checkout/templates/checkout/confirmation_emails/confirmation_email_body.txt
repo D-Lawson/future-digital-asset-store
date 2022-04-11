@@ -1,0 +1,21 @@
+Hi {{ order.full_name }},
+
+Thank you for your purchase today, we hope you enjoy owning these digital assets.  Please view your order details below:
+
+Order Number: {{ order.order_id }}
+Order Date: {{ order.date }}
+
+Order Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Any discount applied: £{{ order.discount_amount }}
+Grand Total: £{{ order.grand_total }}
+
+If you have purchased a physical asset, it will be delivered to: {{ order.address_line_1 }} in {{ order.address_line_2 }}, {{ order.country }}.
+
+If you have any queries at all, please contact us at {{ contact_email }}.
+
+Thank you for your purchase today!
+
+Sincerely,
+
+Future Digital Asset Store
