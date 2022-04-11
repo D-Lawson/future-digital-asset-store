@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import UserAccount
 from .forms import UserAccountForm
 
+from checkout.models import Order, OrderLineItem
+
 
 def account(request):
     """ Show the user's account page. """
@@ -24,6 +26,24 @@ def account(request):
         'form': form,
         'orders': orders,
         'viewing_account': True,
+    }
+
+    return render(request, template, context)
+
+
+def previous_orders(request, order_id):
+    """ Show the selected previous order. """
+    order = get_object_or_404(Order, order_id=order_id)
+
+    messages.info(request, (
+        f'Please view the order summary for order {order_id}. '
+        'This information was sent to your email on the order date.'
+    ))
+
+    template = 'checkout/checkout_completed.html'
+    context = {
+        'order': order,
+        'from_account': True,
     }
 
     return render(request, template, context)

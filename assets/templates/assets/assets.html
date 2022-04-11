@@ -16,10 +16,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="page-heading">Assets</h2>
+                <hr>
+                {% if not active_categories %}
+                <h6><span class="page-heading-all text-uppercase">Viewing all assets</span></h6>
+                {% endif %}
                 {% for c in active_categories %}
-                    <a class="page-heading-category" href="{% url 'assets' %}?category={{ c.name }}">
-                        <span class="p-2 mt-2">{{ c.display_name }}</span>
+                    <a class="animate__animated animate__fadeInDown page-heading-category text-uppercase" href="{% url 'assets' %}?category={{ c.name }}">
+                        <span class="p-2 mt-2 mr-2">{{ c.display_name }}</span>
                     </a>
                 {% endfor %}
                 <hr class="w-50 mb-1">

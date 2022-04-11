@@ -46,6 +46,9 @@ body {
 .nav-buttons-1{
     color: #00aeec;
     margin-right: 3rem!important;
+    font-family: monospace;
+    font-weight: 100;
+    letter-spacing: 2px;
 }
 
 .navbar-toggler:focus,
@@ -105,11 +108,25 @@ body {
     color: #32d6bf;
 }
 
-.page-heading-category{
-    font-size: 97%;
-    color: #00aeec;
-    text-decoration: solid;
+.page-heading-all{
+    color: #ed4e63;
+    letter-spacing: 2px;
+    font-family: monospace;
 }
+
+.page-heading-category{
+    color: #ed4e63;
+    letter-spacing: 2px;
+    font-family: monospace;
+}
+
+.page-heading-category:hover{
+    color: #ed96a1;
+    letter-spacing: 2px;
+    font-family: monospace;
+    text-decoration: none;
+}
+
 
 .callout-fill {
     font-size: 2rem;
@@ -246,6 +263,7 @@ body {
     background-color: #000d1d !important;
     border: 1px solid #32d6bf!important;
     border-radius: 0px;
+    font-family: monospace;
 }
 
 .input-style-2{
@@ -291,6 +309,8 @@ select {
 .menu-style{
     background-color: #000d1d !important;
     border: 1px solid #32d6bf!important;
+    font-family: monospace;
+    font-size: medium;
 }
 
 .menu-item{

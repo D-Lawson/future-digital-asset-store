@@ -9,8 +9,11 @@ import json
 
 from basket.contexts import basket_contents
 from assets.models import Asset
+from accounts.models import UserAccount
+from accounts.forms import UserAccountForm
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -117,7 +120,24 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        create_order = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                account = UserAccount.objects.get(user=request.user)
+                create_order = OrderForm(initial={
+                    'full_name': account.user.get_full_name(),
+                    'email': account.user.email,
+                    'phone_number': account.default_phone_number,
+                    'country': account.default_country,
+                    'postcode': account.default_postcode,
+                    'town_or_city': account.default_town_or_city,
+                    'address_line_1': account.default_address_line_1,
+                    'address_line_2': account.default_address_line_2,
+                    'county': account.default_county,
+                })
+            except UserAccount.DoesNotExist:
+                create_order = OrderForm()
+        else:
+            create_order = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing from \
@@ -139,6 +159,26 @@ def checkout_completed(request, order_id):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_id=order_id)
+
+    if request.user.is_authenticated:
+        account = UserAccount.objects.get(user=request.user)
+        order.user_account = account
+        order.save()
+
+        if save_info:
+            account_data = {
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_address_line_1': order.address_line_1,
+                'default_address_line_2': order.address_line_2,
+                'default_county': order.county,
+            }
+            user_account_form = UserAccountForm(account_data, instance=account)
+            if user_account_form.is_valid():
+                user_account_form.save()
+
     messages.success(request, f'Your order was a success! \
         The order number is {order_id}. An email \
         will be sent to {order.email} with confirmation.')
