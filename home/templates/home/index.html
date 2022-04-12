@@ -2,23 +2,31 @@
 {% load static %}
 
 {% block header %}
-    <div class="container header-style">
-        <div class="row">
-            <div class="col">
+<div class="container header-style">
+    <div class="row">
+        <div class="col">
 
-            </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block main_content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-5 callout-fill text-center">
-                    View the full catalogue<a href="{% url 'assets' %}" class="btn btn-lg button-style">Shop Now</a>
-                </h1>
-            </div>
-        </div>
+<div class="container h-100">
+    <div class="row h-100 overlay-1">
     </div>
+    <div class="row h-100">
+        <div class="col-12 col-md-7 my-auto">
+            <h1 class="display-5 callout-fill text-center justify-content-center">
+                WELCOME! OWN NEW DIGITAL ASSETS TODAY<a href="{% url 'assets' %}"
+                    class="btn btn-lg mt-3 nav-buttons-1">BROWSE NOW</a>
+            </h1>
+        </div>
+        <div class="col-12 col-md-5 my-auto">
+            <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/l3q2XB76CaWPggiNW" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p></p>
+            
+        </div>
+        
+    </div>
+</div>
 {% endblock %}

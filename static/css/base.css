@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
 html {
     height: 100%;
 }
@@ -30,6 +32,22 @@ body {
     z-index: -1;
 }
 
+.overlay-1{
+    height: 100%;
+    width: 102%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    color:transparent;
+    background: radial-gradient(circle at center, #00adec10, #06a6e009, #32d6c00f, #06a6e022);
+    background-size: 660px 660px;
+    -webkit-animation: FadeGradient 7s linear infinite;
+    -moz-animation: FadeGradient 7s linear infinite;
+    animation: FadeGradient 7s linear infinite;
+    color:transparent;
+    z-index: 0;
+}
+
 .nav-size{
     padding-bottom: 10px;
 }
@@ -41,14 +59,19 @@ body {
 
 .nav-buttons {
     color: #aaacad;
+    font-family: 'Unica One', cursive;
 }
 
 .nav-buttons-1{
     color: #00aeec;
     margin-right: 3rem!important;
-    font-family: monospace;
-    font-weight: 100;
+    font-family: 'Unica One', cursive;
+    font-size: large;
+    font-weight: 500;
     letter-spacing: 2px;
+    border-color: #32d6bf70;
+    border-style: solid;
+    border-width: thin;
 }
 
 .navbar-toggler:focus,
@@ -72,6 +95,21 @@ body {
 }
 
 .logo-style {
+    font-family: 'Unica One', cursive;
+    -webkit-background-clip: text;
+    color:transparent;
+    background: radial-gradient(circle at center, #00aeec, #06a7e0, #32d6bf, #06a7e0);
+    background-size: 660px 660px;
+    -webkit-animation: FadeGradient 7s linear infinite;
+    -moz-animation: FadeGradient 7s linear infinite;
+    animation: FadeGradient 7s linear infinite;
+    -webkit-background-clip: text;
+    color:transparent;
+}
+
+.logo-style-1 {
+    font-family: 'Unica One', cursive;
+    font-size: 2.3rem !important;
     -webkit-background-clip: text;
     color:transparent;
     background: radial-gradient(circle at center, #00aeec, #06a7e0, #32d6bf, #06a7e0);
@@ -111,35 +149,36 @@ body {
 .page-heading-all{
     color: #ed4e63;
     letter-spacing: 2px;
-    font-family: monospace;
+    font-family: 'Unica One', cursive;
+    font-size: x-large;
 }
 
 .page-heading-category{
     color: #ed4e63;
     letter-spacing: 2px;
-    font-family: monospace;
+    font-family: 'Unica One', cursive;
+    font-size: large;
 }
 
 .page-heading-category:hover{
     color: #ed96a1;
     letter-spacing: 2px;
-    font-family: monospace;
     text-decoration: none;
 }
 
 
 .callout-fill {
     font-size: 2rem;
-    background: radial-gradient(circle at center, #0274b8, #0274b8, #02bdb7, #0274b8);
+    width: fit-content;
+    background: #000d1d;
     padding: 15px;
-    background-size:660px 660px;
     border-radius: 0.2em;
-    border-style: inset;
-    border-color: #006baf9e;
-    -webkit-animation: FadeGradient 14s linear infinite;
-    -moz-animation: FadeGradient 14s linear infinite;
-    animation: FadeGradient 14s linear infinite;
-    color: #000000;
+    border-style: double;
+    border-color: #02fafe85;
+    color: #02b5fd;
+    padding: 47px;
+    border-width: 5px;
+    font-family: 'Unica One', cursive;
   }
 
 .card-fill {
@@ -261,7 +300,7 @@ body {
 
 .input-style{
     background-color: #000d1d !important;
-    border: 1px solid #32d6bf!important;
+    border: 1px solid #32d6c098!important;
     border-radius: 0px;
     font-family: monospace;
 }
@@ -270,6 +309,13 @@ body {
     background-color: #000d1d !important;
     border: 1px solid #0684b3 !important;
     border-radius: 0px;
+}
+
+.input-style-3{
+    background-color: #000d1d !important;
+    border: 1px solid #32d6bf70!important;
+    border-radius: 0px;
+    font-family: monospace;
 }
 
 input {
