@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Asset, Category
 from django.db.models.functions import Lower
+from .models import Asset, Category
+from .forms import AssetForm
 
 
 def all_assets(request):
@@ -40,7 +41,8 @@ def all_assets(request):
                 messages.error(request, "Please enter a search criteria")
                 return redirect(reverse('assets'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             assets = assets.filter(queries)
 
     active_sort = f'{sort}_{direction}'
@@ -65,4 +67,51 @@ def asset_detail(request, asset_id):
     }
 
     return render(request, 'assets/asset_detail.html', context)
-    
+
+
+def add_asset(request):
+    """ Add new asset to collection """
+    if request.method == 'POST':
+        form = AssetForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'New asset added to collection.')
+            return redirect(reverse('add_asset'))
+        else:
+            messages.error(
+                request, 'Please check that the form has been completed \
+                    properly.')
+    else:
+        form = AssetForm()
+
+    template = 'assets/add_asset.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_asset(request, asset_id):
+    """ Edit existing asset details """
+    asset = get_object_or_404(Asset, pk=asset_id)
+    if request.method == 'POST':
+        form = AssetForm(request.POST, request.FILES, instance=asset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Asset has been updated')
+            return redirect(reverse('asset_detail', args=[asset.id]))
+        else:
+            messages.error(request, 'Please check that the form has been completed \
+                    properly.')
+    else:
+        form = AssetForm(instance=asset)
+        messages.info(request, f'Currently editing {asset.name}')
+
+    template = 'assets/edit_asset.html'
+    context = {
+        'form': form,
+        'asset': asset,
+    }
+
+    return render(request, template, context)

@@ -41,7 +41,11 @@
                     {% for asset in basket_items %}
                     <tr class="green">
                         <td class="p-3 w-25">
-                            <img class="img-fluid rounded fit-image-center" src="{{ asset.asset.image_url }}">
+                            {% if asset.asset.image %}
+                                <img class="img-fluid rounded fit-image-center" src="{{ asset.asset.image_url }}" alt="{{ asset.asset.name }}">
+                            {% else %}
+                                <img class="img-fluid rounded fit-image-center" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ asset.asset.name }}">
+                            {% endif %}
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ asset.asset.name }}</strong></p>

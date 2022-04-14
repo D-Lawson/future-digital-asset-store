@@ -85,7 +85,7 @@
                         <div class="dropdown-menu menu-style" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                            <a href="" class="dropdown-item menu-item">Manage assets</a>
+                            <a href="{% url 'add_asset' %}" class="dropdown-item menu-item">Manage assets</a>
                             {% endif %}
                             <a href="{% url 'account' %}" class="dropdown-item menu-item">Account</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item menu-item">Logout</a>

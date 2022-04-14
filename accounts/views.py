@@ -4,7 +4,7 @@ from django.contrib import messages
 from .models import UserAccount
 from .forms import UserAccountForm
 
-from checkout.models import Order, OrderLineItem
+from checkout.models import Order
 
 
 def account(request):
@@ -17,8 +17,13 @@ def account(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Updated details saved to account')
-
-    form = UserAccountForm(instance=account)
+        else:
+            messages.error(
+                request, 'Please check that the form has been completed \
+                    properly.')
+    else:
+        form = UserAccountForm(instance=account)
+    
     orders = account.orders.all()
 
     template = 'accounts/account.html'

@@ -173,13 +173,23 @@ body {
     background: #000d1d;
     padding: 15px;
     border-radius: 0.2em;
-    border-style: double;
+    border-style: solid;
     border-color: #02fafe85;
     color: #02b5fd;
     padding: 47px;
-    border-width: 5px;
+    border-width: 2px;
     font-family: 'Unica One', cursive;
-  }
+}
+
+.iframe-style{
+    font-size: 2rem; */
+    width: fit-content;
+    height: -webkit-fill-available;
+    border-radius: 0.2em;
+    border-style: solid;
+    border-color: #02fafe85;
+    border-width: 2px;
+}
 
 .card-fill {
     background: radial-gradient(circle at center, #0274b8d6, #0274b8d6, #0ea6a1ba, #0274b8d6);

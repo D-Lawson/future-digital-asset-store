@@ -1,0 +1,19 @@
+.form-control {
+    background-color: #000d1d !important;
+    border: 1px solid #32d6bf!important;
+    border-radius: 0px;
+    color: #00aeec !important;
+    text-decoration: solid;
+}
+
+body{
+    color: #2e9d8e;
+}
+
+input::placeholder {
+    color: #0163a0;
+}
+
+label {
+    color: #32d6bf!important;
+}
