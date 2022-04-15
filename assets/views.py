@@ -74,9 +74,9 @@ def add_asset(request):
     if request.method == 'POST':
         form = AssetForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            asset = form.save()
             messages.success(request, 'New asset added to collection.')
-            return redirect(reverse('add_asset'))
+            return redirect(reverse('asset_detail', args=[asset.id]))
         else:
             messages.error(
                 request, 'Please check that the form has been completed \
@@ -115,3 +115,11 @@ def edit_asset(request, asset_id):
     }
 
     return render(request, template, context)
+
+
+def delete_asset(request, asset_id):
+    """ Delete an asset from the collection """
+    asset = get_object_or_404(Asset, pk=asset_id)
+    asset.delete()
+    messages.success(request, 'Asset deleted')
+    return redirect(reverse('assets'))

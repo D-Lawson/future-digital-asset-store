@@ -82,6 +82,14 @@
                                             </p>
                                             {% endif %}
                                             <small class="purchased-text">Purchased: {{ asset.popularity }}</small>
+                                            {% if request.user.is_superuser %}
+                                            <div class="mt-1">
+                                                <small style="background-color: #000d1d; padding: 0px 4px 0px 4px">
+                                                    <a href="{% url 'edit_asset' asset.id %}">Edit asset</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_asset' asset.id %}">Delete</a>
+                                                </small>
+                                            </div>    
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

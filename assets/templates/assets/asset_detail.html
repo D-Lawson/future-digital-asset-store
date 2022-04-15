@@ -59,17 +59,27 @@
                     </select>
                 </div>
                 {% endif %}
-                <div class="col-12pl-0">
+                <div class="col-12 pl-0">
                     <p class="mt-3 green"><strong>Quantity:</strong></p>
-                    <div class="form-group w-50">
-                        <div class="input-group quantity buttons_added mb-4">
+                    <div class="form-group w-50 mb-0">
+                        <div class="input-group quantity buttons_added mb-3">
                             <input type="button" value="-" class="minus">
-                            <input class="form-control qty_input input-style qty" type="number" name="quantity" title="Qty" value="1" min="1" max="99" step="1" data-item_id="{{ asset.id }}" id="id_qty_{{ asset.id }}">
+                            <input class="form-control qty_input input-style qty" type="number" name="quantity"
+                                title="Qty" value="1" min="1" max="99" step="1" data-item_id="{{ asset.id }}"
+                                id="id_qty_{{ asset.id }}">
                             <input type="button" value="+" class="plus">
                         </div>
                     </div>
                 </div>
-                <div class="col-12 pl-0">
+                {% if request.user.is_superuser %}
+                <div class="mt-0">
+                <small style="background-color: #000d1d; padding: 0px 4px 0px 4px">
+                    <a href="{% url 'edit_asset' asset.id %}">Edit asset</a> |
+                    <a class="text-danger" href="{% url 'delete_asset' asset.id %}">Delete</a>
+                </small>
+                </div>
+                {% endif %}
+                <div class="col-12 pl-0 mt-3">
                     <a href="{% url 'assets' %}" class="btn button-style-2">
                         <span class="icon">
                             <i class="fas fa-caret-left lime"></i>
