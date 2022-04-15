@@ -1,0 +1,1 @@
+web: gunicorn dig_asset_store.wsgi:application
