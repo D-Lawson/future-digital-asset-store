@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Asset, Category
@@ -69,8 +70,13 @@ def asset_detail(request, asset_id):
     return render(request, 'assets/asset_detail.html', context)
 
 
+@login_required
 def add_asset(request):
     """ Add new asset to collection """
+    if not request.user.is_superuser:
+        messages.error(request, 'You do not have site permissions to do that')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = AssetForm(request.POST, request.FILES)
         if form.is_valid():
@@ -92,8 +98,13 @@ def add_asset(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_asset(request, asset_id):
     """ Edit existing asset details """
+    if not request.user.is_superuser:
+        messages.error(request, 'You do not have site permissions to do that')
+        return redirect(reverse('home'))
+
     asset = get_object_or_404(Asset, pk=asset_id)
     if request.method == 'POST':
         form = AssetForm(request.POST, request.FILES, instance=asset)
@@ -117,8 +128,13 @@ def edit_asset(request, asset_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_asset(request, asset_id):
     """ Delete an asset from the collection """
+    if not request.user.is_superuser:
+        messages.error(request, 'You do not have site permissions to do that')
+        return redirect(reverse('home'))
+
     asset = get_object_or_404(Asset, pk=asset_id)
     asset.delete()
     messages.success(request, 'Asset deleted')
