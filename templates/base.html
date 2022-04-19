@@ -99,7 +99,7 @@
                         <a class="nav-link" href="{% url 'view_basket' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-cart-shopping fa-lg nav-buttons icon-style"></i></div>
-                                <p class="my-0 nav-buttons text-light">
+                                <p class="my-0 nav-buttons">
                                     {% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
                                     {% else %}
@@ -113,7 +113,7 @@
             </div>
         </div>
         <div class="row nav-fill">
-            <nav class="navbar navbar-expand-lg w-100 mb-3">
+            <nav class="navbar navbar-expand-lg w-100 mb-3 mob-margin">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <i><span class="fa-solid fa-bars icon-style"></span></i>

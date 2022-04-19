@@ -52,7 +52,7 @@
                 {% if s %}
                 <div class="col-12 pl-0">
                     <p class="green"><strong>Print size:</strong></p>
-                    <select class="form-control w-50 input-style mb-4" name="print_size" id='id_print_size'>
+                    <select class="form-control size-width input-style mb-4" name="print_size" id='id_print_size'>
                         <option value="Digital only" selected>Digital download only</option>
                         <option value="297mm x 420mm">297mm x 420mm (includes digital)</option>
                         <option value="420mm x 594mm">420mm x 594mm (includes digital)</option>
@@ -80,14 +80,16 @@
                 </div>
                 {% endif %}
                 <div class="col-12 pl-0 mt-3">
-                    <a href="{% url 'assets' %}" class="btn button-style-2">
+                    <a href="{% url 'assets' %}" class="btn pl-0">
                         <span class="icon">
-                            <i class="fas fa-caret-left lime"></i>
+                            <i class="fas fa-caret-left back-style"></i>
                         </span>
-                        <span class="lime">Browse more assets</span>
+                        <span class="back-style">Browse more assets</span>
                     </a>
-                    <input type="submit" class="btn button-style-3" value="PURCHASE">
-                </div>
+                    <button id="submit-button" class="btn kave-btn">
+                        <span class="kave-line"></span>
+                        Add to basket
+                    </button>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 {% endwith %}
         </div>

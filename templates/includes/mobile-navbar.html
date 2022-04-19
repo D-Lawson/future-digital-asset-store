@@ -4,7 +4,7 @@
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div><i class="fa-brands fa-searchengin fa-lg icon-style"></i></div>
-                <p class="my-0 nav-buttons">Search</p>
+                <p class="my-0 nav-buttons blue-label">Search</p>
             </div>
         </a>
         <div class="dropdown-menu w-100 p-3 my-0 nav-fill" aria-labelledby="mobile-search">
@@ -27,7 +27,7 @@
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div class="nav-buttons"><i class="fas fa-gears fa-lg icon-style"></i></div>
-                <p class="my-0 nav-buttons">SITE OPTIONS</p>
+                <p class="my-0 nav-buttons blue-label">SITE OPTIONS</p>
             </div>
         </a>
         <div class="dropdown-menu menu-style" aria-labelledby="user-options">
@@ -35,7 +35,7 @@
             {% if request.user.is_superuser %}
             <a href="{% url 'add_asset' %}" class="dropdown-item menu-item">Manage assets</a>
             {% endif %}
-            <a href="" class="dropdown-item menu-item">Account</a>
+            <a href="{% url 'account' %}" class="dropdown-item menu-item">Account</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item menu-item">Logout</a>
             {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item menu-item">Register</a>
