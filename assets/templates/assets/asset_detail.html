@@ -11,6 +11,8 @@
 </div>
 {% endblock %}
 
+<!-- Block content for viewing individual asset details -->
+
 {% block main_content %}
 <div class="overlay"></div>
 <div class="container-fluid">
@@ -64,7 +66,7 @@
                     <div class="form-group w-50 mb-0">
                         <div class="input-group quantity buttons_added mb-3">
                             <input type="button" value="-" class="minus">
-                            <input class="form-control qty_input input-style qty" type="number" name="quantity"
+                            <input class="form-control qty_input input-style qty no-side-border" type="number" name="quantity"
                                 title="Qty" value="1" min="1" max="99" step="1" data-item_id="{{ asset.id }}"
                                 id="id_qty_{{ asset.id }}">
                             <input type="button" value="+" class="plus">

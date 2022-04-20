@@ -26,13 +26,13 @@ class StripeHandler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [customer_email]
-        ) 
+        )
 
     def handle_event(self, event):
         """
@@ -100,7 +100,8 @@ class StripeHandler:
         if order_exists:
             self._send_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Order matches original basket',
+                content=f'Webhook received: {event["type"]} \
+                | SUCCESS: Order matches original basket',
                 status=200)
         else:
             order = None

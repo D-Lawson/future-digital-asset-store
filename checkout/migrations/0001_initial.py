@@ -5,6 +5,7 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+    """  Migration for checkout model """
 
     initial = True
 
@@ -16,33 +17,48 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Order',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('order_id', models.CharField(editable=False, max_length=32)),
                 ('date', models.DateTimeField(auto_now_add=True)),
                 ('full_name', models.CharField(max_length=50)),
                 ('address_line_1', models.CharField(max_length=80)),
-                ('address_line_2', models.CharField(blank=True, max_length=80, null=True)),
+                ('address_line_2', models.CharField(
+                    blank=True, max_length=80, null=True)),
                 ('town_or_city', models.CharField(max_length=40)),
-                ('county', models.CharField(blank=True, max_length=80, null=True)),
+                ('county', models.CharField(blank=True, max_length=80,
+                                            null=True)),
                 ('country', models.CharField(max_length=40)),
-                ('postcode', models.CharField(blank=True, max_length=20, null=True)),
+                ('postcode', models.CharField(blank=True, max_length=20,
+                                              null=True)),
                 ('email', models.EmailField(max_length=254)),
                 ('phone_number', models.CharField(max_length=20)),
-                ('delivery_cost', models.DecimalField(decimal_places=2, default=0, max_digits=6)),
-                ('discount_amount', models.DecimalField(decimal_places=2, default=0, max_digits=6)),
-                ('order_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('grand_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
+                ('delivery_cost', models.DecimalField(
+                    decimal_places=2, default=0, max_digits=6)),
+                ('discount_amount', models.DecimalField(
+                    decimal_places=2, default=0, max_digits=6)),
+                ('order_total', models.DecimalField(
+                    decimal_places=2, default=0, max_digits=10)),
+                ('grand_total', models.DecimalField(
+                    decimal_places=2, default=0, max_digits=10)),
             ],
         ),
         migrations.CreateModel(
             name='OrderLineItem',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('asset_size', models.CharField(blank=True, max_length=2, null=True)),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
+                ('asset_size', models.CharField(
+                    blank=True, max_length=2, null=True)),
                 ('quantity', models.IntegerField(default=0)),
-                ('total_sum', models.DecimalField(decimal_places=2, editable=False, max_digits=6)),
-                ('asset', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='assets.asset')),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='lineitems', to='checkout.order')),
+                ('total_sum', models.DecimalField(
+                    decimal_places=2, editable=False, max_digits=6)),
+                ('asset', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='assets.asset')),
+                ('order', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                 related_name='lineitems', to='checkout.order')),
             ],
         ),
     ]

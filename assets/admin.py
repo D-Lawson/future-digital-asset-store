@@ -3,6 +3,7 @@ from .models import Asset, Category
 
 # Register your models here.
 
+
 class AssetAdmin(admin.ModelAdmin):
     list_display = (
         'name',
@@ -13,6 +14,7 @@ class AssetAdmin(admin.ModelAdmin):
     )
 
     ordering = ('popularity',)
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

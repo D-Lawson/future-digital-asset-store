@@ -24,7 +24,7 @@ def account(request):
                     properly.')
     else:
         form = UserAccountForm(instance=account)
-    
+
     orders = account.orders.all()
 
     template = 'accounts/account.html'

@@ -12,6 +12,8 @@
 </div>
 {% endblock %}
 
+<!-- Block content for the basket page -->
+
 {% block main_content %}
 <div class="overlay"></div>
 <div class="container mb-2">
@@ -72,9 +74,9 @@
                                 {% endif %}
                             </form>
                             {% if asset.asset.print_sizes and asset.size != "Digital only" %}
-                            <a class="update-qty text-info"><small>Update &nbsp |</small></a>
+                            <a class="update-qty text-info"><small>Update &nbsp |&nbsp</small></a>
                             {% endif %}
-                            <a class="remove-asset text-danger ml-2" id="remove_{{ asset.asset_id }}" data-asset_size="{{ asset.size }}"><i class="fa-solid fa-xmark"></i></a>
+                            <a class="remove-asset text-danger small" id="remove_{{ asset.asset_id }}" data-asset_size="{{ asset.size }}">Remove <i class="fa-solid fa-xmark"></i></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">£{{ asset.asset.price | calc_subtotal:asset.quantity | floatformat:2 }}</p>

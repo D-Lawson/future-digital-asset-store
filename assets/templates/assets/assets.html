@@ -11,6 +11,8 @@
     </div>
 {% endblock %}
 
+<!-- Block content for viewing all assets selected from menu -->
+
 {% block main_content %}
     <div class="overlay"></div>
     <div class="container-fluid">
@@ -32,7 +34,7 @@
             <div class="col-10 offset-1">
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="w-50">
+                        <div class="w-50 outline-none">
                             <select id="sort-selector" class="input-style custom-select custom-select-sm rounded-0 border border-{% if active_sort != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if active_sort == 'None_None' %}selected{% endif %}>View by...</option>
                                 <option value="price_asc" {% if active_sort == 'price_asc' %}selected{% endif %}>Price (low to high)</option>

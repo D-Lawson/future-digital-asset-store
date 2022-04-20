@@ -15,7 +15,8 @@ class Order(models.Model):
     """ Model for creating an order"""
     order_id = models.CharField(max_length=32, null=False, editable=False)
     user_account = models.ForeignKey(UserAccount, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+                                     null=True, blank=True,
+                                     related_name='orders')
     date = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     address_line_1 = models.CharField(max_length=80, null=False, blank=False)
@@ -83,7 +84,8 @@ class OrderLineItem(models.Model):
     asset_size = models.CharField(max_length=25, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     total_sum = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+        max_digits=6, decimal_places=2, null=False, blank=False,
+        editable=False)
 
     def save(self, *args, **kwargs):
         """

@@ -47,6 +47,8 @@
 
 </head>
 
+<!-- Core body template including main nav on full screen size -->
+
 <body>
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row nav-fill nav-size pt-lg-2 d-none d-lg-flex">
@@ -118,11 +120,14 @@
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <i><span class="fa-solid fa-bars icon-style"></span></i>
                 </button>
+                <!-- Embedded templates for mobile nav, and nav menu options -->
                 {% include 'includes/mobile-navbar.html' %}
                 {% include 'includes/nav-options.html' %}
             </nav>
         </div>
     </header>
+
+    <!-- Container for status messages -->
 
     {% if messages %}
         <div class="message-container">
@@ -142,11 +147,17 @@
         </div>
     {% endif %}
 
+    <!-- Block to embed additional header elements -->
+
     {% block header %}
     {% endblock %}
 
+    <!-- Block to embed main site content elements -->
+
     {% block main_content %}
     {% endblock %}
+
+    <!-- Block for embedding post load js files, with some default post load js -->
 
     {% block afterjs %}
     <script src="{% static 'js/script.js' %}"></script>
