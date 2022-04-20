@@ -144,23 +144,26 @@ body {
     border-width: 2px;
 }
 
-.callout-text{
+.callout-text {
     font-family: 'Unica One', cursive;
     font-size: 1.8rem;
 }
 
+iframe {
+    width: 100%;
+    height: 100%;
+    position:absolute; 
+    border: 0px;
+}
+
 .iframe-style {
     font-size: 2rem;
-    width: fit-content;
-    height: -webkit-fill-available;
     border-radius: 0.2em;
     border-style: solid;
     border-color: #02fafe85;
     border-width: 2px;
-    width:100%;
-    height:0;
-    padding-bottom:56%;
-    position:relative;
+    padding-bottom: 56%;
+    position: relative;
 }
 
 .card-fill {
