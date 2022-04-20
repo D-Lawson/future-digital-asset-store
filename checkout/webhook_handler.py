@@ -130,7 +130,8 @@ class StripeHandler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in asset_data['asset_by_size'].items():
+                        for size, quantity in \
+                                asset_data['asset_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 asset=asset,

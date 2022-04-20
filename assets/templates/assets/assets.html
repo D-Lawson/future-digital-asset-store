@@ -132,13 +132,13 @@
 
 {% block afterjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
 		$('.to-top-cursor').click(function(e) {
 			window.scrollTo(0,0)
 		})
 	</script>
     
-    <script type="text/javascript">
+    <script>
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);

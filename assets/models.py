@@ -36,3 +36,10 @@ class Asset(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+    def increment_popularity(self):
+        """
+        Update the popularity
+        """
+        self.popularity = self.popularity + 1
+        self.save()

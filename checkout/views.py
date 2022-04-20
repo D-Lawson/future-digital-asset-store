@@ -84,7 +84,8 @@ def checkout(request):
                         order_line_item.save()
                     else:
                         physical_item = False
-                        for size, quantity in asset_data['asset_by_size'].items():
+                        for size, quantity in \
+                                asset_data['asset_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 asset=asset,
