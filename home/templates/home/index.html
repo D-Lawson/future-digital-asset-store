@@ -20,21 +20,24 @@
     <div class="row h-100">
 
         <div class="col-12 col-md-7 my-auto d-md-none text-center">
-                <div>
-                    <h2 class="my-0 logo-style-1 mt-2">FUTURE DIGITAL ASSET STORE</h2>
-                </div>
+            <div>
+                <h2 class="my-0 logo-style-1 mt-2">FUTURE DIGITAL ASSET STORE</h2>
+            </div>
         </div>
-        <div class="col-12 col-md-7 my-auto">
-            <h1 class="display-5 callout-fill text-center justify-content-center">
-                WELCOME! OWN NEW DIGITAL ASSETS TODAY
-                <a class="home-button" href="{% url 'assets' %}"><button class="kave-btn mt-4"><span class="kave-line"></span>BROWSE NOW</button></a>
-            </h1>
+        <div class="col-12 col-md-7 my-auto display-5 callout-fill">
+            <h1 class="callout-text text-center justify-content-center">
+                WELCOME!  PROUDLY OWN DIGITAL ASSETS, TODAY!</h1>
+            <div class="text-center justify-content-center">
+                <form action="{% url 'assets' %}">
+                    <button class="kave-btn mt-4"><span class="kave-line"></span>BROWSE NOW</button>
+                </form>
+            </div>
         </div>
         <div class="col-12 col-md-5 my-auto no-top-margin">
-            <div class="iframe-style" style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/l3q2XB76CaWPggiNW" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p></p>
-            
+            <div class="iframe-style"><iframe
+                    src="https://giphy.com/embed/l3q2XB76CaWPggiNW" width="100%" height="100%" style="position:absolute; border: 0px;"
+                    class="giphy-embed" allowFullScreen></iframe></div>
         </div>
-        
     </div>
 </div>
 {% endblock %}
