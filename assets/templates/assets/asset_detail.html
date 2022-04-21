@@ -19,7 +19,12 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-3">
             <div class="my-5">
-                {% if asset.image_url %}
+                {% if asset.is_video %}
+                <video class="card-img-top img-fluid" controls width="250">                
+                    <source src="{{ MEDIA_URL }}{{ asset.media }}"
+                            type="video/mp4">
+                </video>
+                {% elif asset.image_url %}
                 <a href="{{ asset.image_url }}" target="_blank">
                     <img class="card-img-top img-fluid" src="{{ asset.image_url }}" alt="{{ asset.name }}">
                 </a>
@@ -34,6 +39,13 @@
             <div class="mb-4 mt-md-5">
                 <p class="mb-0 description-style">{{ asset.name }}</p>
                 <p class="mb-0 text-left font-weight-bold" style="color: #77b5cb;">£{{ asset.price }}</p>
+                {% if asset.media and asset.is_audio %}
+                <div class="pb-0 pl-0 audio-1 mt-3">
+                    <audio controls>
+                        <source src="{{ MEDIA_URL }}{{ asset.media }}" type="audio/ogg">
+                    </audio>
+                </div>
+                {% endif %}
                 <p class="mt-3" style="color: aqua;">{{ asset.description }}</p>
                 {% if asset.category %}
                 <p class="mt-1 mb-0 d-inline-block">
@@ -61,27 +73,27 @@
                     </select>
                 </div>
                 {% endif %}
-                <div class="col-12 pl-0">
+                <div class="col-12 pl-0 {% if not asset.print_sizes %}d-none{% endif %}">
                     <p class="mt-3 green"><strong>Quantity:</strong></p>
                     <div class="form-group w-50 mb-0">
                         <div class="input-group quantity buttons_added mb-3">
                             <input type="button" value="-" class="minus">
-                            <input class="form-control qty_input input-style qty no-side-border" type="number" name="quantity"
-                                title="Qty" value="1" min="1" max="99" step="1" data-item_id="{{ asset.id }}"
-                                id="id_qty_{{ asset.id }}">
+                            <input class="form-control qty_input input-style qty no-side-border" type="number"
+                                name="quantity" title="Qty" value="1" min="1" max="99" step="1"
+                                data-item_id="{{ asset.id }}" id="id_qty_{{ asset.id }}">
                             <input type="button" value="+" class="plus">
                         </div>
                     </div>
                 </div>
                 {% if request.user.is_superuser %}
                 <div class="mt-0">
-                <small style="background-color: #000d1d; padding: 0px 4px 0px 4px">
-                    <a href="{% url 'edit_asset' asset.id %}">Edit asset</a> |
-                    <a class="text-danger" href="{% url 'delete_asset' asset.id %}">Delete</a>
-                </small>
+                    <small style="background-color: #000d1d; padding: 0px 4px 0px 4px">
+                        <a href="{% url 'edit_asset' asset.id %}">Edit asset</a> |
+                        <a class="text-danger" href="{% url 'delete_asset' asset.id %}">Delete</a>
+                    </small>
                 </div>
                 {% endif %}
-                <div class="col-12 pl-0 mt-3">
+                <div class="col-12 pl-0 mt-3 mb-space">
                     <a href="{% url 'assets' %}" class="btn pl-0">
                         <span class="icon">
                             <i class="fas fa-caret-left back-style"></i>
@@ -92,12 +104,12 @@
                         <span class="kave-line"></span>
                         Add to basket
                     </button>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                {% endwith %}
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    {% endwith %}
+                </div>
+            </form>
         </div>
-        </form>
     </div>
-</div>
 </div>
 
 {% endblock %}

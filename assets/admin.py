@@ -11,6 +11,7 @@ class AssetAdmin(admin.ModelAdmin):
         'price',
         'popularity',
         'image',
+        'media',
     )
 
     ordering = ('popularity',)
