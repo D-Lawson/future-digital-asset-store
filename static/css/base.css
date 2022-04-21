@@ -30,6 +30,14 @@ body {
 
 /* Generic styling */
 
+.h-80 {
+    height: 80%!important;
+}
+
+.relative {
+    position: relative !important;
+}
+
 .overlay {
     height: 100%;
     width: 100%;
@@ -86,7 +94,7 @@ body {
 }
 
 .icon-style {
-    color: #32d6bf !important;
+    color: #36acab !important;
 }
 
 .green {
@@ -104,6 +112,11 @@ body {
 .blue-label {
     color: #00aeec !important;
     text-decoration: solid;
+}
+
+footer i:hover {
+    color: #32d6bf !important;
+    text-decoration: none !important;
 }
 
 .page-heading {
@@ -235,6 +248,14 @@ iframe {
     font-size: 80%;
 }
 
+.two-text{
+    font-size: 2.0rem !important;
+}
+
+.mono{
+    font-family: monospace !important;
+}
+
 .all-assets-text {
     color: #7cb1f3 !important;
 }
@@ -306,6 +327,12 @@ iframe {
 
 .outline-none {
     outline: none !important;
+}
+
+.social-media{
+    z-index: 999 !important;
+    text-decoration: none !important;
+    position: relative;
 }
 
 /* Navbar styling */
@@ -417,6 +444,23 @@ a:hover {
     text-decoration: none !important;
 }
 
+
+#footer-style {
+    left: 0;
+    bottom: 0 !important;
+    width: 100% !important;
+    margin-top: 50px !important;
+    background-color: #000d1d;
+    color: #fff;
+    flex: 0 0 50px;
+    border-top-color: rgb(22 101 100) !important;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: transparent;
+    border-style: solid;
+    border-width: 1px;
+}
+
 /* Form input styling */
 
 .input-style {
@@ -440,6 +484,10 @@ a:hover {
     border-radius: 0px;
     font-family: monospace;
     outline: none;
+}
+
+input.input-style-3 {
+    border-right: transparent !important;
 }
 
 input {

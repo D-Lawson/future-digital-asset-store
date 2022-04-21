@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'accounts/css/account.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/css/account.css' %}">
 {% endblock %}
 
 {% block header %}
@@ -50,32 +50,32 @@
                     </thead>
                     <tbody>
                         {% for order in orders %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'previous_orders' order.order_id %}"
-                                    title="{{ order.order_id }}">
-                                        {{ order.order_id|truncatechars:6 }}
-                                    </a>
-                                </td>
-                                <td class="blue-label">{{ order.date }}</td>
-                                <td>
-                                    <ul class="blue">
-                                        {% for item in order.lineitems.all %}
-                                            <li class="small green">
-                                                {% if item.asset.print_sizes %}
-                                                    Size {{ item.asset_size|upper }}  |
-                                                {% endif %}{{ item.asset.name }} x{{ item.quantity }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                                <td class="blue-label">£{{ order.grand_total }}</td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url 'previous_orders' order.order_id %}" title="{{ order.order_id }}">
+                                    {{ order.order_id|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td class="blue-label">{{ order.date }}</td>
+                            <td>
+                                <ul class="blue">
+                                    {% for item in order.lineitems.all %}
+                                    <li class="small green">
+                                        {% if item.asset.print_sizes %}
+                                        Size {{ item.asset_size|upper }} |
+                                        {% endif %}{{ item.asset.name }} x{{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td class="blue-label">£{{ order.grand_total }}</td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}

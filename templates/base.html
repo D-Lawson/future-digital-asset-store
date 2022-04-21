@@ -81,8 +81,7 @@
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div class="nav-buttons"><i class="fas fa-gears fa-lg icon-style"></i></div>
-                                <p class="my-0 nav-buttons blue-label">SITE OPTIONS</p>
+                                <div class="nav-buttons"><p class="my-0 nav-buttons blue-label"><i class="fas fa-gears fa icon-style"></i> SITE OPTIONS</p></div>
                             </div>
                         </a>
                         <div class="dropdown-menu menu-style" aria-labelledby="user-options">
@@ -101,8 +100,9 @@
                     <li class="list-inline-item">
                         <a class="nav-link" href="{% url 'view_basket' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-cart-shopping fa-lg nav-buttons icon-style"></i></div>
+                                
                                 <p class="my-0 nav-buttons">
+                                    <i class="fas fa-cart-shopping fa nav-buttons icon-style"></i>
                                     {% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
                                     {% else %}
@@ -157,6 +157,28 @@
 
     {% block main_content %}
     {% endblock %}
+
+    <!-- Footer elements -->
+
+    <footer id="footer-style" class="py-4 text-center">
+        <h2 class="my-0 logo-style-1 two-text mb-1">FUTURE DIGITAL ASSET STORE</h2>
+        <p class="mono small green mb-1">Copyright &copy; Dan Lawson 2022</p>
+        <a href="mailto:info@FDAS.com" target="_blank">
+            <i class="fa-solid fa-envelope small blue-label relative mb-2" aria-label="Contact" title="Contact"><span class="mono"> Contact us</span></i>
+        </a>
+        <div class="social-media">
+            <a href="https://youtube.com" target="_blank">
+                <i class="fab fa-youtube blue-label" aria-label="Youtube" title="Youtube"></i>
+            </a>
+            <a href="https://en-gb.facebook.com/" target="_blank">
+                <i class="fab fa-facebook blue-label" aria-label="Facebook" title="Facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/?hl=en" target="_blank">
+                <i class="fab fa-instagram blue-label" aria-label="Instagram" title="Instagram"></i>
+            </a>
+        </div>
+    
+    </footer>
 
     <!-- Block for embedding post load js files, with some default post load js -->
 

@@ -16,7 +16,7 @@
 
 {% block main_content %}
 <div class="overlay"></div>
-<div class="container mb-2">
+<div class="container mb-2 {% if not basket_items %}h-100{% endif %}">
     <div class="row">
         <div class="col">
             <hr>
