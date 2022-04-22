@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='asset',
             name='media',
-            field=models.FileField(blank=True, null=True, upload_to=''),
+            field=models.FileField(blank=True, null=True, upload_to='{{ MEDIA_URL }}'),
         ),
     ]
