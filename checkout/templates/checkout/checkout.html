@@ -60,11 +60,13 @@
                 <div class="col-9">
                     <p class="m-0 green">Order Total:</p>
                     <p class="m-0 green">Delivery:</p>
+                    <p class="m-0 green">Discount applied:</p>
                     <p class="m-0 green">Grand Total:</p>
                 </div>
                 <div class="col-3">
                     <p class="m-0 green">£{{ total | floatformat:2 }}</p>
                     <p class="m-0 green">£{{ delivery | floatformat:2 }}</p>
+                    <p class="m-0 green">£{{ display_discount | floatformat:2 }}</p>
                     <p class="m-0 green"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
                 </div>
             </div>
