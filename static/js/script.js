@@ -5,8 +5,11 @@ $("#id_print_size").on("change",function(){
   var val = $(this).find('option:selected').val();
   if(val === "Digital only"){
     $("#qty-container").addClass(`d-none`);
+    $(".qty_input").val('1')
+
   } else {
     $("#qty-container").removeClass(`d-none`);
+    $(".qty_input").val('1')
   }
 });
 

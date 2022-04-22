@@ -60,7 +60,7 @@
                                 <div class="image-div">
                                 {% if asset.image %}
                                 <a href="{% url 'asset_detail' asset.id %}">
-                                    <img class="card-img-top img-fluid fit-image-center" style="" src="{{ asset.image_url }}" alt="{{ asset.name }}">
+                                    <img class="card-img-top img-fluid fit-image-center" src="{{ asset.image_url }}" alt="{{ asset.name }}">
                                 </a>
                                 
                                 {% else %}
