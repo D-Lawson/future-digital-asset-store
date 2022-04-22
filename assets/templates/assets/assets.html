@@ -73,7 +73,7 @@
                                     <p class="mb-0">{{ asset.name }}</p>
                                 </div>
                                 {% if asset.media and asset.is_audio %}
-                                <div class="pb-0 audio">
+                                <div class="pb-0 audio mt-1">
                                 <audio controls>
                                     <source src="{{ MEDIA_URL }}{{ asset.media }}" type="audio/ogg">
                                 </audio>
@@ -86,7 +86,7 @@
                                             {% if asset.category %}
                                             <p class="mt-1 mb-0">
                                                 <a class="category-text" href="{% url 'assets' %}?category={{ asset.category.name }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ asset.category.display_name }}
+                                                    <i class="fas fa-tag mr-1 category-icon"></i>{{ asset.category.display_name }}
                                                 </a>
                                             </p>
                                             {% endif %}
