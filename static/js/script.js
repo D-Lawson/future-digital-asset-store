@@ -1,6 +1,5 @@
 // Hide quantity if print size is digital only
 
-
 $("#id_print_size").on("change",function(){
   var val = $(this).find('option:selected').val();
   if(val === "Digital only"){

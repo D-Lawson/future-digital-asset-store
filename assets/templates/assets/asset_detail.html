@@ -14,6 +14,7 @@
 <!-- Block content for viewing individual asset details -->
 
 {% block main_content %}
+<div class="hero-image"></div>
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
@@ -36,7 +37,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="mb-4 mt-md-5">
+            <div class="mb-4 mt-md-5 mono">
                 <p class="mb-0 description-style">{{ asset.name }}</p>
                 <p class="mb-0 text-left font-weight-bold" style="color: #77b5cb;">£{{ asset.price }}</p>
                 {% if asset.media and asset.is_audio %}
@@ -65,7 +66,7 @@
                 {% with asset.print_sizes as s %}
                 {% if s %}
                 <div class="col-12 pl-0">
-                    <p class="green"><strong>Print size:</strong></p>
+                    <p class="green mono"><strong>Print size:</strong></p>
                     <select class="form-control size-width input-style mb-4" name="print_size" id='id_print_size'>
                         <option value="Digital only" selected>Digital download only</option>
                         <option value="297mm x 420mm">297mm x 420mm (includes digital)</option>
@@ -98,7 +99,7 @@
                         <span class="icon">
                             <i class="fas fa-caret-left back-style"></i>
                         </span>
-                        <span class="back-style">Browse more assets</span>
+                        <span class="back-style text-input">Browse more assets</span>
                     </a>
                     <button id="submit-button" class="btn kave-btn">
                         <span class="kave-line"></span>

@@ -14,6 +14,7 @@
 <!-- Block content for viewing all assets selected from menu -->
 
 {% block main_content %}
+    <div class="hero-image"></div>
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
@@ -82,15 +83,15 @@
                                 <div class="card-footer pt-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold price-text">£{{ asset.price }}</p>
+                                            <p class="lead mb-0 mt-1 text-left font-weight-bold price-text">£{{ asset.price }}</p>
                                             {% if asset.category %}
                                             <p class="mt-1 mb-0">
-                                                <a class="category-text" href="{% url 'assets' %}?category={{ asset.category.name }}">
+                                                <a class="category-text mono" href="{% url 'assets' %}?category={{ asset.category.name }}">
                                                     <i class="fas fa-tag mr-1 category-icon"></i>{{ asset.category.display_name }}
                                                 </a>
                                             </p>
                                             {% endif %}
-                                            <small class="purchased-text">Purchased: {{ asset.popularity }}</small>
+                                            <small class="purchased-text mono">Purchased: {{ asset.popularity }}</small>
                                             {% if request.user.is_superuser %}
                                             <div class="mt-1">
                                                 <small style="background-color: #000d1d; padding: 0px 4px 0px 4px">

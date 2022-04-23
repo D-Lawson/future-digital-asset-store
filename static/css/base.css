@@ -12,11 +12,13 @@ html {
 
 body {
     background-color: #000d1d !important;
-    background: url('/media/WHG1m7.jpg') no-repeat center center fixed;
-    background-size: cover;
     height: calc(100vh - 200px);
     color: #555;
-    font-family: 'Titillium Web';
+}
+
+
+a.text-input:focus {
+    outline:none !important;
 }
 
 /* Scrollbar */
@@ -58,6 +60,17 @@ audio::-webkit-media-controls-panel {
 
 .relative {
     position: relative !important;
+}
+
+.hero-image {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: url('/media/WHG1m7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
 }
 
 .overlay {
@@ -202,7 +215,7 @@ iframe {
 }
 
 .card-fill {
-    background: radial-gradient(circle at center, #0274b8d6, #0274b8d6, #0ea6a1ba, #0274b8d6);
+    background: radial-gradient(circle at center, #036ca9d6, #02629ad6, #0e9a9599, #026197d6);
     background-size: 660px 660px;
     border-radius: 0.2em;
     border-style: solid;
@@ -247,6 +260,12 @@ iframe {
     align-items: flex-end;
     text-shadow: 0 0 #5efee8;
     color: #32d6bf;
+    font-size: 0.9rem !important;
+}
+
+.price-text {
+    font-size: 1rem !important;
+    color: #c0c6c7 !important;
 }
 
 .description-style {
@@ -266,7 +285,7 @@ iframe {
     border-radius: 3px;
     padding: 2px;
     bottom: -3px;
-    right: 4px;
+    right: 8px;
 }
 
 .table-border {
@@ -307,6 +326,8 @@ iframe {
     bottom: -3px;
     font-size: 80%;
     font-weight: 400;
+    left: -7px;
+    position: relative;
 }
 
 .category-icon{
@@ -500,6 +521,7 @@ a:hover {
     border-style: solid;
     border-width: 1px;
 }
+
 
 /* Form input styling */
 
@@ -699,7 +721,6 @@ select {
         background-position: 660px -660px;
     }
 }
-
 
 /* Allauth form formatting (Adapted from boutique Ado) */
 
