@@ -300,6 +300,8 @@ iframe {
 .description-style {
     padding-top: 20px;
     padding-bottom: 10px;
+    text-shadow: 0 0 #5efee8;
+    color: #32d6bf;
 }
 
 .table-border {
