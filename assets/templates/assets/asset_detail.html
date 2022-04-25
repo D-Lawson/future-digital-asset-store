@@ -38,18 +38,18 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="mb-4 mt-md-5 mono">
-                <p class="mb-0 description-style">{{ asset.name }}</p>
+                <p class="mb-0 description-style green-1">{{ asset.name }}</p>
                 <p class="mb-0 text-left font-weight-bold" style="color: #77b5cb;">£{{ asset.price }}</p>
                 {% if asset.media and asset.is_audio %}
-                <div class="pb-0 pl-0 audio-1 mt-3">
+                <div class="pb-0 pl-0 audio-1 mt-2">
                     <audio controls>
                         <source src="{{ MEDIA_URL }}{{ asset.media }}" type="audio/ogg">
                     </audio>
                 </div>
                 {% endif %}
-                <p class="mt-3" style="color: aqua;">{{ asset.description }}</p>
+                <p class="mt-3 blue-label">{{ asset.description }}</p>
                 {% if asset.category %}
-                <p class="mt-1 mb-0 d-inline-block">
+                <p class="mt-1 mb-0 d-inline-block mono">
                     <a class="description-category mr-5" href="{% url 'assets' %}?category={{ asset.category.name }}">
                         <i class="fas fa-tag mr-1"></i>{{ asset.category.display_name }}
                     </a>
@@ -99,7 +99,7 @@
                         <span class="icon">
                             <i class="fas fa-caret-left back-style"></i>
                         </span>
-                        <span class="back-style text-input">Browse more assets</span>
+                        <span class="back-style text-input mono">Browse more assets</span>
                     </a>
                     <button id="submit-button" class="btn kave-btn">
                         <span class="kave-line"></span>

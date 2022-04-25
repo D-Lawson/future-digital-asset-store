@@ -61,25 +61,31 @@
                                 <div class="image-div">
                                 {% if asset.image %}
                                 <a href="{% url 'asset_detail' asset.id %}">
-                                    <img class="card-img-top img-fluid fit-image-center" src="{{ asset.image_url }}" alt="{{ asset.name }}">
+                                    <img class="card-img-top img-fluid fit-image-center {% if asset.media and asset.is_audio %}audio-img{% endif %}" src="{{ asset.image_url }}" alt="{{ asset.name }}">
                                 </a>
-                                
-                                {% else %}
-                                <a href="{% url 'asset_detail' asset.id %}">
-                                    <img class="card-img-top img-fluid fit-image-center" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ asset.name }}">
-                                </a>
-                                {% endif %}
-                                </div>
-                                <div class="card-body pb-0 card-body-style">
-                                    <p class="mb-0">{{ asset.name }}</p>
-                                </div>
                                 {% if asset.media and asset.is_audio %}
-                                <div class="pb-0 audio mt-1">
+                                <div class="pb-0 audio mt-1 audio-position">
                                 <audio controls>
                                     <source src="{{ MEDIA_URL }}{{ asset.media }}" type="audio/ogg">
                                 </audio>
                                 </div>
                                 {% endif %}
+                                {% else %}
+                                <a href="{% url 'asset_detail' asset.id %}">
+                                    <img class="card-img-top img-fluid fit-image-center {% if asset.media and asset.is_audio %}audio-img{% endif %}" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ asset.name }}">
+                                </a>
+                                {% if asset.media and asset.is_audio %}
+                                <div class="pb-0 audio mt-1 audio-position">
+                                <audio controls>
+                                    <source src="{{ MEDIA_URL }}{{ asset.media }}" type="audio/ogg">
+                                </audio>
+                                </div>
+                                {% endif %}
+                                {% endif %}
+                                </div>
+                                <div class="card-body pb-0 card-body-style">
+                                    <p class="mb-0">{{ asset.name }}</p>
+                                </div>
                                 <div class="card-footer pt-0 text-left">
                                     <div class="row">
                                         <div class="col">

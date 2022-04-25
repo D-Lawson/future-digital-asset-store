@@ -40,13 +40,28 @@ audio {
     height: 35px;
 }
 
+.audio-position {
+    position: relative;
+    bottom: 43px;
+}
+
 audio::-webkit-media-controls-panel {
     background-color: #2271d2aa !important;
+    background: -o-radial-gradient(center, circle, #036ca9d6, #02629ad6, #0e9a9599, #026197d6);
+    background: radial-gradient(circle at center, #036ca9d6, #02629ad6, #0e9a9599, #026197d6);
+    background-size: 660px 660px;
+    -webkit-animation: FadeGradient 14s linear infinite;
+    animation: FadeGradient 14s linear infinite;
+    color: #000000;
 }
 
 .audio-1 audio {
     padding-left: 0px !important;
     width: 250px;
+}
+
+.audio-img {
+    padding-bottom: 10px;
 }
 
 /* Generic styling */
@@ -135,6 +150,10 @@ audio::-webkit-media-controls-panel {
 
 .green {
     color: #32d6bf !important;
+}
+
+.green-1 {
+    color: #00bfa5 !important;
 }
 
 .lime {
@@ -281,8 +300,6 @@ iframe {
 .description-style {
     padding-top: 20px;
     padding-bottom: 10px;
-    text-shadow: 0 0 #5efee8;
-    color: aqua;
 }
 
 .table-border {
@@ -320,7 +337,7 @@ iframe {
     color: #23e9b2;
     position: absolute;
     border-radius: 3px;
-    padding: 2px;
+    padding: 0.5px;
     bottom: -4px;
     right: 8px;
 }
