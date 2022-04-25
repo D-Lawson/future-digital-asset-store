@@ -720,6 +720,14 @@ select {
     }
 }
 
+/* Styles below 576px */
+
+@media (max-width: 576px) {
+    .offset-1 {
+        margin-left: 0% !important;
+    }
+}
+
 /* Styles below 530px */
 
 @media (max-width: 530px) {
