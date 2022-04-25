@@ -70,7 +70,7 @@ Fontawesome icons are used across the site to provide visual cues to support the
 
 ### Wireframes
 The wireframes have been produced using Balsamiq and provide a visual illustration of the layout that should be adhered to.
-The wireframes can be accessed [here](INSERT URL).   
+The wireframes can be accessed [here](static/images/readme/fdas-wireframes.pdf).
 
 ### Data Schema
 The data structures for this project along with the relationships have been illustrated here:
