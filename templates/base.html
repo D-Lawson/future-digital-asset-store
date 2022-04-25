@@ -20,7 +20,6 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     {% endblock %}
@@ -66,7 +65,7 @@
                         <input class="form-control input-style-3" type="text" name="search"
                             placeholder="Search asset catalogue...">
                         <div class="input-group-append">
-                            <button class="form-control btn input-style-3" type="submit">
+                            <button class="form-control btn input-style-3" type="submit" aria-label="Search">
                                 <span>
                                     <i class="fa-brands fa-searchengin logo-style h4"></i>
                                 </span>
@@ -165,18 +164,18 @@
         <div class="footer-overlay">
         <h2 class="my-0 logo-style-1 two-text mb-1">FUTURE DIGITAL ASSET STORE</h2>
         <p class="mono small green mb-1">Copyright &copy; Dan Lawson 2022</p>
-        <a href="mailto:info@FDAS.com" target="_blank">
-            <i class="fa-solid fa-envelope small blue-label relative mb-2" aria-label="Contact" title="Contact"><span class="mono"> Contact us</span></i>
+        <a href="mailto:info@FDAS.com" target="_blank" aria-label="Contact" title="Contact">
+            <i class="fa-solid fa-envelope small blue-label relative mb-2"><span class="mono"> Contact us</span></i>
         </a>
         <div class="social-media">
-            <a href="https://youtube.com" target="_blank">
-                <i class="fab fa-youtube blue-label" aria-label="Youtube" title="Youtube"></i>
+            <a href="https://youtube.com" target="_blank" aria-label="Youtube" title="Youtube">
+                <i class="fab fa-youtube blue-label"></i>
             </a>
-            <a href="https://en-gb.facebook.com/" target="_blank">
-                <i class="fab fa-facebook blue-label" aria-label="Facebook" title="Facebook"></i>
+            <a href="https://en-gb.facebook.com/" target="_blank" aria-label="Facebook" title="Facebook">
+                <i class="fab fa-facebook blue-label"></i>
             </a>
-            <a href="https://www.instagram.com/?hl=en" target="_blank">
-                <i class="fab fa-instagram blue-label" aria-label="Instagram" title="Instagram"></i>
+            <a href="https://www.instagram.com/?hl=en" target="_blank" aria-label="Instagram" title="Instagram">
+                <i class="fab fa-instagram blue-label"></i>
             </a>
         </div>
     </div>

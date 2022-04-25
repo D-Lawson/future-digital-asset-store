@@ -50,7 +50,7 @@
                                 <img class="img-fluid rounded fit-image-center" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ asset.asset.name }}">
                             {% endif %}
                         </td>
-                        <td class="py-3">
+                        <td class="py-3 basket-info">
                             <p class="my-0"><strong>{{ asset.asset.name }}</strong></p>
                             {% if asset.asset.print_sizes %}<p class="my-0"><strong>Print size: </strong>{{ asset.size|upper }}</p>{% else %}{% endif %}
                             <p class="my-0 small text-muted">Asset number: {{ asset.asset.pk }}</p>
